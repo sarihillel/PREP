@@ -1,0 +1,130 @@
+﻿body {
+}
+
+.area-content {
+    margin-top: 0;
+}
+
+.user-icon {
+    position: relative;
+    margin-left: 80%;
+    cursor: pointer;
+}
+
+.amdocs-emp {
+    float: left;
+}
+
+.area-input > .customer-emp:first-child, .area-input > div:first-child {
+    margin-bottom: 8px;
+}
+
+.area-input {
+    float: left;
+    width: 25%;
+    margin-right: 8%;
+}
+
+.area-header {
+    float: left;
+    width: 25%;
+    margin-right: 8%;
+}
+
+.area-input:last-child {
+    margin-right: 0;
+}
+
+.area-div {
+    padding-left: 8%;
+    padding-right: 0;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+    .form-control[disabled] {
+        cursor: not-allowed;
+        background-color: white;
+    }
+
+.area-row {
+    width: 100%;
+    padding-top: 1%;
+}
+
+.custom-row {
+    margin-bottom: 14px;
+}
+
+.area-name {
+    padding-left: 0;
+}
+
+.be-over {
+    z-index: 50;
+}
+
+.over-all {
+    z-index: 50;
+}
+
+.area-name > span, .col-md-2 > span {
+    vertical-align: top;
+}
+
+.deleteIconAFP {
+    margin-top: -23px !important;
+    right: 32px !important;
+    cursor: pointer;
+    position: relative !important;
+    float: right;
+}
+
+.elips {
+    padding-right: 28%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.area-cb {
+    margin-right: 1px;
+    float: left;
+}
+
+.ellipsis-div {
+     margin-left: 3px;
+}
+.padding-r-0 {
+    padding-right: 0px !important;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    cursor: auto !important;
+    background-color: white !important;
+}
+
+.area-header {
+    text-align: center;
+}
+
+@media screen and (max-width : 1200px) {
+    .area-input {
+        margin-right: 4%;
+    }
+
+    .area-header {
+        margin-right: 3%;
+    }
+
+    .ellipsis-div {
+        width: 76px !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 3px;
+    }
+}

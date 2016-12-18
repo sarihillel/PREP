@@ -1,0 +1,170 @@
+﻿.dialogoverlay, #dialogoverlay {
+    opacity: .6;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: black;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+
+
+#dialogbox {
+    position: fixed;
+    width: 400px;
+    z-index: 11;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+    min-height: 150px;
+    border-color: #ccc;
+    margin: -100px 0 0 -200px;
+    top: 20%;
+    left: 50%;
+    font-family: Arial;
+}
+
+    #dialogbox > #dialogboxhead {
+        font-size: 19px;
+        padding: 20px 20px 0px 20px;
+    }
+
+        #dialogbox > #dialogboxhead > span {
+            vertical-align: 4px;
+        }
+
+        #dialogbox > #dialogboxhead > img {
+            margin-right: 15px;
+            vertical-align: top;
+            width: 25px;
+            height: 25px;
+        }
+
+    #dialogbox > #dialogboxbody {
+        padding: 20px;
+    }
+
+    #dialogbox > #dialogboxfoot {
+        display: inline;
+        padding: 10px;
+        text-align: right;
+        margin: 0 auto;
+    }
+
+
+    #dialogbox.loading button#okBtn {
+        display: none;
+    }
+
+.dialogalert {
+    width: 160px;
+}
+
+.dialogconfirm {
+    width: 320px;
+}
+
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    width: 100px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+    .button:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+        text-decoration: none;
+    }
+
+.danger > #dialogboxhead {
+    color: darkred;
+}
+
+.warning > #dialogboxhead {
+    color: orange;
+}
+
+.success > #dialogboxhead {
+    color: green;
+}
+
+.information > #dialogboxhead {
+    color: dodgerblue;
+}
+
+.error > #dialogboxhead {
+    color: red;
+}
+
+.x-btn {
+    line-height: 20px;
+    padding-top: 0px;
+    float: right;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.popUp .header-title {
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.detailsContentPopUp {
+    height: 83% !important;
+    position: relative !important;
+}
+/*.form-control{
+    margin-left:30px;
+}*/
+
+/*.detailsContentPopUp input{
+    margin-left: 30px !important;
+}*/
+
+.popUpViewWrapper {
+    height: 100% !important;
+    position: relative !important;
+}
+
+.detailsContentPopUp label {
+    font-weight: normal;
+    padding-left: 0px;
+}
+
+.detailsContentPopUp .editPopUp label {
+    font-weight: normal;
+    padding-left: 0px;
+}
+
+.popUp {
+    background-color: #e2e2e2;
+    width: 80%;
+    height: 80%;
+    position: fixed;
+    z-index: 11;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    min-height: 150px;
+    border-color: #ccc;
+    /*margin: 0 0 0 -200px;*/
+    top: 10%;
+    left: 10%;
+    font-family: Arial;
+}

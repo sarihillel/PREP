@@ -1,0 +1,182 @@
+﻿@model PREP.DAL.TableViews.ReleaseCPView
+<script>
+    $(document).ready(function () {
+        $(".exit-popup-btn").click(exitPopUpWindow);
+        $("#cp-details-Edit").click(function () { ChangeContentPopUpWindow("/Releases/EditReleaseCPDetails", { releaseCP: $("#milstone-strip-wrapper").data("selectedmilstone") }); })
+        // cp - details - cancel
+        $("#cp-details-cancel").click(exitPopUpWindow);
+        $("#cp-details-save").click(cpDetailsSave)
+    });
+</script>
+<div class="popUpViewWrapper">
+    <input type="button" class="exit-popup-btn x-btn" value="X" />
+    <h2 class="header-title">CP Details</h2>
+    <div class="detailsContent detailsContentPopUp">
+
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.CPName)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.CPName)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ReleaseID)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ReleaseID)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ReleaseName)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ReleaseName)
+            </div>
+        </div>
+        <hr />
+
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.AccountName)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.AccountName)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+               
+                @Html.DisplayNameFor(model => model.PlannedDate)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.PlannedDate)
+                @*@Html.DisplayFor(model=>model.PlannedDate.ToString())*@
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.PublicationMailDate)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.PublicationMailDate)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.PublicationMailLink)
+            </div>
+
+            <div class="form-inline">
+               @if (Model.PublicationMailLink == "#")
+               {
+                <a title="No mail was sent" download>Download </a>
+               }
+               else
+               {
+                <a href="@Model.PublicationMailLink" download>Download </a>
+               }
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.PublicationCount)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.PublicationCount)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.SendByID)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.SendByID)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.SendByName)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.SendByName)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ExceptionIndicator)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ExceptionIndicator,"bool")
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ExceptionDate)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ExceptionDate)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ExceptionRemarks)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ExceptionRemarks)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.DelayDays)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.DelayDays)
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.Comments)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.Comments)
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div class="tabs-action-button">
+        <input type="button" value="Edit" class="footer-button" id="cp-details-Edit" />
+    </div>
+</div>
+
+

@@ -1,0 +1,11 @@
+﻿@model PREP.Models.ReleaseMilstoneCP_Footer
+
+<div id="prod-milestone">
+    <span>@(Model.MilestoneName)</span>
+    <p name="ProductionStartDate">@Model.MilestoneDate</p>
+    <p class='@(Model.IsCreated  ? "checkpoint-link" : "")' title="@(Model.IsCreated ? null : "No CP was created")"
+       data-cpid="@(Model.CheckPointId)" name="@(Model.MilestoneName)">
+        <i class="sprite icon-37 checklist-icon"></i>
+        <span class="checklist-icon-title ">SDR7 BAU <br />@Model.CheckPointDate</span>
+    </p>
+</div>

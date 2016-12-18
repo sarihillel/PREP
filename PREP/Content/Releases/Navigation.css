@@ -1,0 +1,431 @@
+﻿
+body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+li {
+    display: block;
+}
+
+
+/*-------------- main-nav ----------------*/
+.main-nav {
+    /*TODO: font-family: OpenSans;*/
+    color: #ffffff;
+    font-size: 14px; /* Approximation due to font substitution */
+    font-weight: 400;
+    text-align: left;
+    background-color: #434e68;
+    width: 314px;
+    height: 484px;
+    overflow: hidden;
+}
+    /*.main-nav li a:visited {
+    background-color:  #00bbbb;
+    width: 314px;
+    height: 53px;
+}*/
+    .main-nav li:hover {
+        cursor: pointer;
+    }
+
+    .main-nav li {
+        float: none;
+        height: 11%;
+        color: white;
+        width: 100%;
+        clear: both;
+    }
+
+
+    .main-nav a {
+        color: white;
+        position: relative;
+    }
+    /*.main-nav li:not(:last-child):hover ,,.main-nav li.active,.main-nav li.active>a {*/
+    .main-nav li.active:not(:last-child), .main-nav li.active:not(:last-child) > a {
+        background-color: #00bbbb;
+    }
+
+li:not(.active) > a.tab-name:hover {
+    background-color: #434e68;
+}
+
+.main-nav li.active:not(:last-child):after {
+    content: "";
+    display: block;
+    border: 12px solid transparent;
+    border-right-color: #e2e2e2;
+    position: absolute;
+    bottom: 14px;
+    right: 0px;
+}
+
+.main-nav li:last-child {
+    cursor: inherit;
+}
+
+.tab-img {
+    float: left;
+    margin: 10px;
+}
+
+.tab-name {
+    width: 65%;
+    float: left;
+}
+
+    .tab-name:active, .tab-name::selection, .tab-name:visited, .tab-name:focus {
+        border: none;
+        outline: none;
+    }
+
+
+.tab-status {
+    display: none;
+    float: left;
+    margin-top: 10px;
+}
+
+.tab-mandatory {
+    display: none;
+    font-family: OpenSans;
+    color: #ffad37;
+    font-size: 12px; /* Approximation due to font substitution */
+    font-style: italic;
+    text-align: left;
+    float: left;
+    margin-top: 5%;
+}
+
+.hide {
+    display: none;
+}
+
+.main-nav li:last-child > img {
+    margin: 15px;
+}
+
+.main-nav li:last-child {
+    border-top: 1px solid #524E4E;
+}
+/*.main-nav li:last-child:hover:after ,i:last-child:hover {
+    background-color:none;
+       display: none;
+}*/
+
+
+.header-title {
+    font-family: OpenSans;
+    color: #00bbbb;
+    font-size: 20px; /* Approximation due to font substitution */
+    font-weight: 100;
+    text-align: left;
+}
+
+
+
+.body-content {
+    float: left;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #e2e2e2;
+}
+
+#tabs {
+    background: #e2e2e2;
+    margin: 0 auto;
+    position: relative;
+    height: 484px;
+    display: block;
+    max-width: 1322px;
+    border: 1px solid white;
+}
+
+#tab-content.tab-content {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: top;
+    width: 975px;
+}
+
+.detailsContent {
+    margin-top: 25px;
+    height: 340px;
+    overflow: auto;
+}
+
+
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 1px solid white;
+    margin-right: 20px;
+}
+
+.detailsContent > div > .form-inline {
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.detailsContent dd {
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.detailsContent dt {
+}
+
+.editItem {
+    border-width: 1px;
+    border-color: #c1c3c5;
+    border-style: solid;
+    background-color: #ffffff;
+    width: 250px;
+    height: 28px;
+    color: #4b4e53;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 20px;
+    margin-left: 30px !important;
+    margin-right: 0px !important;
+}
+
+.item-lable, .detailsContent dt {
+    width: 200px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: inline-block;
+}
+
+.form-group.date {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+.detailsContent.noheader {
+    height: 315px;
+}
+
+.detailsContent > .form-group {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+    .detailsContent > .form-group.date {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .detailsContent > .form-group > .col-md-10 {
+        display: inline-block;
+        width: 250px;
+        float: none;
+    }
+
+    .detailsContent > .form-group > .col-md-6 {
+        display: inline-block;
+        width: 150px;
+        float: none;
+    }
+
+    .detailsContent > .form-group > .item-lable > label {
+        width: 100%;
+        text-align: left;
+        font-weight: normal !important;
+    }
+
+.detailsHeader > .form-group {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+    .detailsHeader > .form-group > .col-md-6 {
+        display: inline-block;
+        width: 150px;
+        float: none;
+    }
+
+    .detailsHeader > .form-group > .item-lable > label {
+        width: 100%;
+        text-align: left;
+        font-weight: normal !important;
+    }
+
+.form-control:focus {
+    border-color: #ff9600;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 198, 117,255 );
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 198, 117, 255);
+}
+
+.header {
+    /*font-family: OpenSans;*/
+    color: #00bbbb;
+    font-weight: normal;
+}
+
+.datetimepickercalendar {
+    position: relative;
+    z-index: 1;
+    left: -25px;
+    top: 1px;
+    cursor: pointer;
+    width: 0;
+}
+
+input.form-control.datetimepickerinput {
+    width: 130px;
+}
+
+.styleSelect {
+    padding-left: 0px !important;
+    position: relative;
+}
+
+.DDLarrow {
+    position: absolute;
+    right: 0px;
+    top: -2px;
+}
+
+.styleSelect > select {
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    -webkit-appearance: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: transparent;
+    -moz-appearance: none;
+    padding-top: 2px;
+}
+.releseId {
+        padding-left: 28px;
+}
+/*select::-ms-expand {
+    display: none;
+}*/
+.padding-left-30{
+    padding-left: 30px;
+}
+.editItemreadonly {
+    background: #e2e2e2;
+    border: none ;
+    /*margin-left: 55px;*/
+    /*padding-left: 30px;*/
+    /*position: absolute;*/
+    bottom: -2px;
+}
+
+
+.fake-input {
+    position: relative;
+    width: 240px;
+}
+
+    .fake-input input {
+        border: none: background:#fff;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .fake-input i {
+        position: absolute;
+        top: 2px;
+        left: -25px;
+        z-index: 1;
+    }
+
+
+.close-icon {
+    border: 1px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+}
+
+    .close-icon:after {
+        content: "dd";
+        display: block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        z-index: 1;
+        right: 35px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 2px;
+        text-align: center;
+        font-weight: normal;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+.footer-button {
+    border: 1px solid #434e68;
+    font-family: OpenSans;
+    color: #434e68;
+    font-size: 14px; /* Approximation due to font substitution */
+    font-weight: 400;
+    text-align: center;
+    margin-left: 12px;
+    width: 110px;
+    height: 28px;
+}
+
+.tabs-action-button {
+    /*margin: 10px 0px;*/
+    margin-right: 26px;
+    margin-top: 10px;
+    float: right;
+}
+
+.main-nav li:nth-child(4) > :nth-child(2), .main-nav li:nth-child(8) > :nth-child(2) {
+    color: gray;
+}
+.col-md-10.editItemreadonly {
+    padding-left: 48px;
+}
+
+.SelectAll{
+    cursor:pointer;
+}
+
+.ClearAll{
+    cursor:pointer;
+}

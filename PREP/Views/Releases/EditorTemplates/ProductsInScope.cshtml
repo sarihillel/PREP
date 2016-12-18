@@ -1,0 +1,30 @@
+﻿@model PREP.Models.ReleaseAndFamilyProducts
+
+<h2 class="header-title">Products In Scope</h2>
+<div class="detailsContent">
+    @* @Html.LabelFor(Model => Model.Release.AdditionalProducts)*@
+    <input type="hidden" id="addedProducts" value=" @(Model.Release.AdditionalProducts)" />
+    @foreach (var FamilyP in Model.FamilyProducts)
+    {
+
+        <div class="form-group family">
+            <div class="family-item">
+                @Html.CheckBoxFor(modelItem => FamilyP.IsChecked, htmlAttributes: new { @disabled = "disabled" })
+                @Html.DisplayFor(modelItem => FamilyP.Name)
+            </div>
+            @foreach (var Product in FamilyP.Products)
+            {
+                <div class="product-item" style="display:@(FamilyP.IsChecked ?  "block" : "none");">
+                    @Html.CheckBoxFor(modelItem => Product.IsChecked, htmlAttributes: new { @disabled = "disabled" })
+                    @Html.DisplayFor(modelItem => Product.Name)
+                </div>
+            }
+            <div class="product-item custom-product" style="display:none;">
+                <input type="checkbox" class="custom-cb" data-family="@(FamilyP.Name.Replace(" ",""))" disabled="disabled" />
+                <input type="text" class="custom-txt form-control" data-family="@(FamilyP.Name.Replace(" ",""))" readonly />
+            </div>
+        </div>
+        <hr />
+    }
+</div>
+

@@ -1,0 +1,340 @@
+﻿
+<div class="modal fade" id="FilterModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content _modal-content">
+            <div class="container">
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-md-11 col-lg-12 pull-left">
+                        <h3 class="filters_title">Filters  <a class="btn btn-default pull-right closex" data-dismiss="modal">X</a></h3>
+                        <!-- tabs left -->
+                        <!--tabs params:
+                            record-name: value is property of List records
+                            record-type: string,date,number,enum
+                                        note: if IsEnum  add attribute type enum and add in ~/scripts/checklist/checklist.js  this.enums
+                            tab-type: list(checkbox),range(select or date)
+                        -->
+
+                        <div class="tabbable tabs-left  col-lg-12">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#Q_ID" data-toggle="tab"
+                                       data-record-name="QuestionCode" data-record-type="string" data-tab-type="list">Question ID</a>
+                                </li>
+                                <li>
+                                    <a href="#Area" data-toggle="tab"
+                                       data-record-name="AreaName" data-record-type="string" data-tab-type="list">Area</a>
+                                </li>
+                                <li>
+                                    <a href="#SubArea" data-toggle="tab"
+                                       data-record-name="SubAreaName" data-record-type="string">Sub Area</a>
+                                </li>
+                                <li>
+                                    <a href="#Q_Text" data-toggle="tab"
+                                       data-record-name="QuestionText" data-record-type="string">Question Text</a>
+                                </li>
+                                <li>
+                                    <a href="#Milestone" data-toggle="tab"
+                                       data-record-name="QuestionMilestoneName" data-record-type="string">Milestone</a>
+                                </li>
+                                <li>
+                                    <a href="#StartDate" data-toggle="tab"
+                                       data-record-name="HandlingStartDate" data-record-type="date" data-tab-type="range">Handling Start Date</a>
+                                </li>
+                                <li>
+                                    <a href="#ActualCompletion" data-toggle="tab"
+                                       data-record-name="ActualComplation" data-record-type="number" data-tab-type="range">Actual Completion</a>
+                                </li>
+                                <li>
+                                    <a href="#RiskLevel" data-toggle="tab"
+                                       data-record-name="RiskLevelID" data-record-type="enum" data-tab-type="list">Risk Level</a>
+                                </li>
+                                @*<li >
+                                    <a href="#ExternalFocalPoint" data-toggle="tab"
+                                       data-record-name="ExternalFocalPoint" data-record-type="string" data-tab-type="list">External Focal Point</a>
+                                </li>*@
+                                <li>
+                                    <a href="#Responsibility" data-toggle="tab"
+                                       data-record-name="Responsibility" data-record-type="enum" data-tab-type="list">Responsibility</a>
+                                </li>
+                                <li>
+                                    <a href="#QuestionOwner" data-toggle="tab"
+                                       data-record-name="QuestionOwnerName" data-record-type="string" data-tab-type="list">Question Owner</a>
+                                </li>
+                                <li>
+                                    <a href="#Comments" data-toggle="tab"
+                                       data-record-name="Comments" data-record-type="string" data-tab-type="list">Comments</a>
+                                </li>
+                                <li>
+                                    
+                                </li>
+                            </ul>
+                            <form role="form" id="form_validation" class="form-class" action="" method="post">
+                                <div class="tab-content _tab-content">
+                                    <!-- Question ID filter starts -->
+                                    <div class="tab-pane active _padding-10" id="Q_ID">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div id="body">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Question ID filter ends -->
+                                    <!-- Area Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="Area">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- Area Filter Ends -->
+                                    <!-- Sub Area Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="SubArea">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- Sub Area Filter Ends -->
+                                    <!-- Question text filters starts -->
+                                    <div class="tab-pane _padding-10" id="Q_Text">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- Questions text filter ends-->
+                                    <!-- Milestone Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="Milestone">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- Milestone Filter Ends -->
+                                    <!-- Handling start date Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="StartDate">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <div class="input-group date col-lg-12">
+                                                        <label for="area" class="start_date pull-left _padding-0 _label">Start Date:&nbsp;</label>
+                                                        <input type='text' class="form-control input-sm pull-left _date width-20" id="btnFrom">
+
+                                                        <label for="area" class="pull-left _padding-0 _label">End Date:&nbsp;</label>
+                                                        <input type='text' class="form-control input-sm pull-left _date width-20" id="btnTo">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Handling start date Filter Ends -->
+                                    <!-- ActualCompletion Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="ActualCompletion">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+                                            <div class="form-group">
+                                                <div class="input-group date col-lg-8">
+                                                    <label for="area" class="pull-left _padding-0 _label">From:&nbsp;</label>
+                                                    <select class="form-control" id="btnFrom" style="width:30%;"></select>
+
+                                                    <label for="area" class="pull-left _padding-0 _label" style="margin-left:40px;">To:&nbsp;</label>
+                                                    <select class="form-control" id="btnTo" style="width:30%;"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ActualCompletion Filter Ends -->
+                                    <!-- Risk Level Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="RiskLevel">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- Risk Level  Filter Ends -->
+                                    <!-- ExternalFocalPoint Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="ExternalFocalPoint">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+
+                                    </div>
+                                    <!-- ExternalFocalPoint Filter Ends -->
+                                    <!-- Responsibility Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="Responsibility">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- Responsibility Filter Ends -->
+                                    <!-- #QuestionOwner Filter Ends -->
+                                    <div class="tab-pane _padding-10" id="QuestionOwner">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- #QuestionOwner Filter Ends -->
+                                    <!-- Comments filters starts -->
+                                    <div class="tab-pane _padding-10" id="Comments">
+                                        <div id="header">
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <input type="text" class="form-control _search" id="uname" name="uname" placeholder="" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group col-lg-5">
+                                                    <a class="_font-12 SelectAll ">Select All</a> | <a class="_font-12 ClearAll">Clear All</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="body">
+
+                                        </div>
+                                    </div>
+                                    <!-- Comments text filter ends-->
+
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /tabs -->
+                    </div>
+                    <div class="col-lg-12 col-md-11 pull-left _padding-10">
+                        <div class="form-group _align-right _align">
+                            <button type="button" class="btn btn-info _no-border-radius-btn _transparent_btns " id="Save">Apply</button>
+                            <button type="button" class="btn btn-info _no-border-radius-btn _transparent_btns " id="Cancel">Cancel</button>
+                            <button type="button" class="btn btn-info _no-border-radius-btn _transparent_btns " id="ClearAll">Clear All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+﻿@model PREP.Models.ReleaseAndFamilyProducts
+
+<div class="form-horizontal">
+    <h2 class="header-title">Products In Scope</h2>
+    <div class="detailsContent ">
+        @Html.EditorFor(Model => Model.FamilyProducts, new { additionalProdact = this.Model.Release.AdditionalProducts })
+        @Html.HiddenFor(Model => Model.Release.AdditionalProducts, new { @id = "addedProducts" })
+    </div>
+</div>
+

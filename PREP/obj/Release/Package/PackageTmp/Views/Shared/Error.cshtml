@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+    <style>
+        .ErrorDiv {
+            position: fixed;
+            padding: 15px;
+            margin: -100px 0 0 -200px;
+            top: 20%;
+            left: 40%;
+            font-family: Arial;
+        }
+
+        .ErrorImage {
+            width: 40px;
+            margin-right: 40px;
+        }
+
+        .ErrorTitle {
+            color: #D01F1F;
+            font-size: 40px;
+            vertical-align: 4px;
+        }
+
+        .ErrorMessage {
+            font-size: 28px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ErrorDiv">
+        <img class="ErrorImage" src="~/Content/Images/Error.png" />
+        <span class="ErrorTitle">Error</span>
+        <div class="ErrorMessage">An error occurred while processing your request.</div>
+    </div>
+</body>
+</html>

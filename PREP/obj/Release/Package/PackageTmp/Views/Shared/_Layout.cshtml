@@ -1,0 +1,188 @@
+﻿@using PREP.DAL.Repositories;
+@using PREP.DAL.Repositories.Memory;
+@using PREP.Models;
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title - PREP</title>
+    @{
+        ViewBag.includeBootsrap = ViewBag.includeBootsrap == null ? true : ViewBag.includeBootsrap;
+    }
+    @RenderSection("overridenStyles", required: false)
+
+    @Scripts.Render("~/bundles/jquery")
+    @if (ViewBag.includeBootsrap)
+    {
+        @Scripts.Render("~/bundles/bootstrap")
+    }
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+    @Scripts.Render("~/bundles/modernizr")
+
+    @if (ViewBag.includeBootsrap)
+    {
+        @Styles.Render("~/Content/css")
+    }
+   
+   <script src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.10/sorting/signed-num.js"></script>
+    <link href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="//cdn.datatables.net/1.10.0/css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+    @Styles.Render("~/Shared/css")
+    @Scripts.Render("~/bundles/Shared")
+    @*@Scripts.Render("~/bundles/Tables")*@
+    @Styles.Render("~/Content/Tables")
+
+    @*<script src="~/Scripts/Releases/Layout.js"></script>*@
+    <script>
+    @{
+        var BaseUrl = Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~");
+    }
+        var ROOT = '@BaseUrl';
+    </script>
+
+    @*@Scripts.Render("~/Scripts/Releases") "*@
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/bootstrapdatetimepicker")
+    @Styles.Render("~/Content/bootstrapdatetimepicker")
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if (Request.Browser.Browser == "InternetExplorer")
+    {
+        <link rel="stylesheet" type="text/css" href="~/Content/Shared/IE.css" />
+    }
+</head>
+
+@{string style = ((string)TempData["View"] == "HomeIndex" ? "imageHome" : "imageLayout");
+    <body class=@style>
+        <div class="container-fluid layout-container">
+            <nav class="row layout-navigation" style="position:static">
+                <ul style="position:static">
+                    <li class="colm-lg-2 amdocs before-after one leave-scenario"><a href="/Home/Index" class="reset-a">Amdocs CSU | PREP</a></li>
+                    <div class="line"></div>
+                    <li class="colm-lg-1 before-after triengle two leave-scenario" id="releases"><div class="wrap"><div class="sprite icon-1 icon-or-text"></div><div class="icon-or-text text"><a href="/Releases/Index" class="reset-a leave-scenario">Releases</a></div></div></li>
+                    <div class="line"></div>
+                    <li class="colm-lg-1 dropdown layout-specific three" style="padding-top: 19px;">
+                        <div class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <div class="wrap">
+                                <i class="sprite icon-22 layout-icon"></i><span class="layout-title">Weekly Reports</span>
+                                <span class="sprite icon-8" style="float:right;position:relative;margin-top: -6px;"></span>
+                            </div>
+                        </div>
+                        <ul class="dropdown-menu menu-style">
+                            @using (ILinksRepository db = new LinksRepository())
+                                {
+                                    foreach (var item in db.Where(a => a.Type == PREP.DAL.Models.LinkType.WeeklyReport && a.IsActive == true))
+                                    {
+                                        <li style="float:none"><a target="_blank" class="item-menu" href="@item.Url">@item.Title</a></li>
+                                        <hr class="ddl-hr" />
+                                    }
+                                }
+                        </ul>
+                    </li>
+                    <div class="line"></div>
+                    <li class="colm-lg-1 dropdown layout-specific four" style="padding-top: 19px;">
+                        <div class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <div class="wrap">
+                                <i class="sprite icon-36 layout-icon"></i><span class="layout-title">Useful Links</span>
+                                <span class="sprite icon-8" style="float:right;position:relative;margin-top: -6px;"></span>
+                            </div>
+                        </div>
+                        <ul class="dropdown-menu menu-style">
+                            @using (ILinksRepository db = new LinksRepository())
+                            {
+                                foreach (var item in db.Where(a => a.Type == PREP.DAL.Models.LinkType.UsefulLink && a.IsActive == true))
+                                {
+                                    <li style="float:none"><a target="_blank" class="item-menu leave-scenario" href="@item.Url">@item.Title</a></li>
+                                    <hr class="ddl-hr" />
+                                }
+                            }
+                        </ul>
+                    </li>
+                    <div class="line"></div>
+                    <li class="colm-lg-1 before-after triengle five" @*id="our-vision"*@ style="cursor:not-allowed"><div class="wrap"><div class="sprite icon-15 icon-or-text"></div><div class="icon-or-text text">Our Vision</div></div></li>
+                    <div class="line"></div>
+                    <li class="colm-lg-1 before-after six" style="cursor:not-allowed"><div class="wrap"><div class="sprite icon-43 icon-or-text"></div><div class="icon-or-text text">Contact us</div></div></li>
+                    <div class="line"></div>
+
+                    @{string empName = new EmployeeRepository().GetNameByUsername(User.Identity.Name); }
+                    <li class="colm-lg-2 text right seven" title="@empName">
+                       <span>@empName</span> 
+                    <input type="hidden" value="@empName" id="userName" />
+                </li>
+            </ul>
+        </nav>
+            @*BreadCrums*@
+        <div class="row">
+            <div class="col-lg-12" style="float:left;padding-left:52px">
+                @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+                {
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navigationBreadCrums leave-scenario  leave-scenario reset-a-color" })
+
+                        @: @Html.Label(" > ", new { @class = "navigationBreadCrums" })
+                        @Html.ActionLink("Releases", "Index", "Releases", null, new { @class = "navigationBreadCrums  leave-scenario " })
+                        if (Session["ReleaseName"] != null && Session["ReleaseID"] != null && ViewContext.RouteData.Values["action"].ToString() != "Index")
+                    {
+                        <label id="bread"> > </label>
+
+                            @Html.RouteLink(Session["ReleaseName"].ToString(), "ReleaseDetails", new { controller = "Releases", action = "Details", ModeName = "View", ReleaseId = Session["ReleaseID"] }, new { @class = "navigationBreadCrums  leave-scenario ReleaseName" })
+
+                            <script>$(".two").addClass("active");</script>
+                    }
+
+                    if (ViewContext.RouteData.Values["controller"].ToString() == "CheckList")
+                    {
+
+                        <label id="bread"> > </label>
+                            @Html.ActionLink("Checklist", "ViewCheckList", "CheckList", new { ReleaseId = Session["ReleaseID"] }, new { @class = "navigationBreadCrums leave-scenario" })
+
+                    }
+                    if (ViewContext.RouteData.Values["controller"].ToString() == "Status")
+                    {
+
+                        <label id="bread"> > </label>
+                        @Html.ActionLink("Status", "ViewStatus", "Status", new { ReleaseId = Session["ReleaseID"] }, new { @class = "navigationBreadCrums leave-scenario" })
+
+                    }
+                }
+            </div>
+        </div>
+    </div>
+        @*<input type="hidden" id="activeTab" />*@
+    @RenderBody()
+</body>
+}
+</html>
+<script type="text/javascript">
+    $(".triengle").click(
+      function () {
+          $(".triengle").removeClass("active");
+          $(this).addClass('active');
+         // $("#activeTab").val($(this).attr("id"));
+      }
+      );
+    @*$(".five").click(function () {
+        window.location.href = "@Url.Action("EmptyPage", "Releases")";
+    });*@
+    //$("#" + $("#activeTab").val()).addClass("active");
+    @*$("#releases").click(
+    function () {
+        if (window.location.href.indexOf("CheckList/ViewCheckList") != -1)
+            leaveScreen();
+        window.location.href = "@Url.Action("Index","Releases")";
+    });*@
+    if (!$.browser.chrome) {
+        $(".three, .four, .line").css("height", "54px");
+        $(".seven").css("height", "46px");
+    }
+    // $('nav li:not(:last-child)').css('cursor', 'pointer');
+    @*$(".one").click(function () {
+        if (window.location.href.indexOf("CheckList/ViewCheckList") != -1)
+            leaveScreen();
+
+       window.location.href = "@Url.Action("Index","Home")";
+   });*@
+</script>

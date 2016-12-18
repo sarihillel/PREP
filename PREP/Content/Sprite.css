@@ -1,0 +1,111 @@
+﻿
+.sprite {
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+    background-image: url('../Content/Images/SPRITE.png');
+}
+
+
+
+.error {background-position: -96px -32px;}
+.ok {background-position: -32px -65px;}
+.GeneralDetails { background-position: -128px -32px;}
+.ProductsInScope { background-position: -224px -32px;}
+.ReleaseCharacteristics { background-position: -64px -64px;}
+.CheckPointReviewMode { background-position: 0 -64px;}
+.ReleaseMilestones { background-position: -192px -32px;}
+.AreaOwners { background-position: -128px -64px;}
+.VendorFocalPoints { background-position: -96px -64px;}
+.ReleaseStakeholders { background-position:-0px -32px;}
+
+/*column-1*/
+.icon-1 { background-position: 0 0;}
+.icon-2 { background-position: 0 -32px;}
+.icon-3 { background-position: 0 -64px;}
+.icon-4 { background-position: 0 -96px;}
+.icon-5 { background-position: 0 -128px;}
+.icon-6 { background-position: 0 -160px;}
+.icon-7 { background-position: 0 -192px;}
+
+/*column-2*/
+.icon-8 { background-position: -32px 0;}
+.icon-9 { background-position: -32px -32px;}
+.icon-10 { background-position: -32px -64px;}
+.icon-11 { background-position: -32px -96px;}
+/*.icon-12 { background-position: -32px -128px;}*/
+.icon-13 { background-position: -32px -160px;}
+.icon-14 { background-position: -32px -192px;}
+
+/*column-3*/
+.icon-15 { background-position: -64px 0;}
+.icon-16 { background-position: -64px -32px;}
+.icon-17 { background-position: -64px -64px;}
+.icon-18 { background-position: -64px -96px;}
+.icon-19 { background-position: -64px -128px;}
+.icon-20 { background-position: -64px -160px;}
+.icon-21 { background-position: -64px -192px;}
+
+/*column-4*/
+.icon-22 { background-position: -96px 0;}
+.icon-23 { background-position: -96px -32px;}
+.icon-24 { background-position: -96px -64px;}
+.icon-25 { background-position: -96px -96px;}
+.icon-26 { background-position: -96px -128px;}
+.icon-27 { background-position: -96px -160px;}
+.icon-28 { background-position: -96px -192px;}
+
+/*column-5*/
+.icon-29 { background-position: -123px 5px;}
+.icon-30 { background-position: -128px -32px;}
+.icon-31 { background-position: -128px -64px;}
+.icon-32 { background-position: -128px -96px;}
+.icon-33 { background-position: -128px -128px;}
+.icon-34 { background-position: -128px -160px;}
+.icon-35 { background-position: -128px -192px;}
+
+/*column-6*/
+.icon-36 { background-position: -160px 0;}
+.icon-37 { background-position: -160px -32px;}
+.icon-38 { background-position: -160px -64px;}
+.icon-39 { background-position: -160px -96px;}
+.icon-40 { background-position: -160px -128px;}
+.icon-41 { background-position: -160px -160px;}
+.icon-42 { background-position: -160px -192px;}
+
+/*column-7*/
+.icon-43 { background-position: -192px 0;}
+.icon-44 { background-position: -192px -32px;}
+.icon-45 { background-position: -192px -64px;}
+.icon-46 { background-position: -192px -96px;}
+.icon-47 { background-position: -192px -128px;}
+.icon-48 { background-position: -192px -160px;}
+.icon-49 { background-position: -192px -192px;}
+
+/*column-8*/
+.icon-50 { background-position: -224px 0;}
+.icon-51 { background-position: -224px -32px;}
+.icon-52 { background-position: -224px -64px;}
+.icon-53 { background-position: -224px -96px;}
+.icon-54 { background-position: -224px -128px;}
+.icon-55 { background-position: -224px -160px;}
+.icon-56 { background-position: -224px -192px;}
+
+/*column-9*/
+.icon-57 { background-position: -256px 0;}
+.icon-58 { background-position: -256px -32px;}
+.icon-59 { background-position: -256px -64px;}
+.icon-60 { background-position: -256px -96px;}
+.icon-61 { background-position: -256px -128px;}
+.icon-62 { background-position: -256px -160px;}
+.icon-63 { background-position: -256px -192px;}
+
+/*column-10*/
+.icon-64 { background-position: -288px 0;}
+.icon-65 { background-position: -288px -32px;}
+.icon-66 { background-position: -288px -64px;}
+.icon-67 { background-position: -288px -96px;}
+.icon-68 { background-position: -288px -128px;}
+.icon-69 { background-position: -288px -160px;}
+.icon-70 { background-position: -288px -192px;}
+

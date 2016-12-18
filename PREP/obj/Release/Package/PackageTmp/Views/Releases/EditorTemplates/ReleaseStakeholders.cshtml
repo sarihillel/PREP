@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PREP.Models.ReleaseStakeholderVM>
+    
+<h2 class="header-title">Release Stakeholders</h2>
+<div>
+    <div class="detailsContent">
+        <div class="form-group">
+            <div class="item-lable">
+            </div>
+            <div class="form-inline">
+                <span class="header">Stakeholder's Name</span>
+            </div>
+        </div>
+        @*<hr />*@
+        @foreach (var item in Model)
+        {
+            <div class="form-group">
+                <div class="item-lable" title="@item.ToolTip">@Html.DisplayFor(modelItem => item.StakeholderName):</div>
+                <div class="form-inline">
+                    @Html.DisplayFor(modelItem => item.FullNameEmployee1)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="item-lable"></div>
+                <div class="form-inline">
+                    @Html.DisplayFor(modelItem => item.FullNameEmployee2) 
+                </div>
+            </div>
+            <hr />
+}
+    </div>
+</div>
+

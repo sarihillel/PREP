@@ -1,0 +1,53 @@
+﻿@model PREP.Models.CurrentRelease
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    select::-ms-expand {
+    display: none;
+}
+</style>
+<script>
+    var ReleaseID = @Model.ReleaseId;
+    var Mode = "@Model.Mode.ToString().ToUpper()";
+
+    $(".two").addClass("active");
+</script>
+<div>
+    <div class="body-release-content">
+        <div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        @{
+            Html.RenderAction("_ReleaseHeader",new  { ReleaseID = Model.ReleaseId , GeneralDetails=Model.Tabs.GeneralDetails });
+        }
+    </div>
+    @{
+        ViewBag.Mode = Model.Mode.ToString().ToUpper();
+        ViewBag.CurrentTabIndex = Model.CurrentTabIndex;
+
+        Html.RenderPartial("_ReleaseTabs", model: Model.Tabs);
+    }
+
+
+</div>
+<div id="details-footer-wrapper">
+    @Html.Action("_ReleaseFooter",new  { releaseId=Model.ReleaseId })
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/Release")
+}
+
+@section overridenStyles{
+    @Styles.Render("~/Releases/css")
+}

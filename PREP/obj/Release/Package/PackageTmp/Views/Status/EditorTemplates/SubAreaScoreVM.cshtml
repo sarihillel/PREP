@@ -1,0 +1,16 @@
+﻿@model PREP.Models.SubAreaScoreVM
+
+<li @*class="elipsis"*@>
+    <div class="sprite-status-small @(Model.Trand)-small pull-left" style="margin-right: 7px;margin-top: 3px;"></div>
+    <div class="sprite-status-small @(Model.ScoreStatus)-small pull-left header_icon" style="margin-right: 7px;margin-top: 6px;"></div>
+    @*<img src="~/Content/CheckList/icons/@(Model.Trand)_grey.png" width="14" class="pull-left">
+    <img src="~/Content/CheckList/icons/@(Model.ScoreStatus).png" width="14" class="pull-left">*@
+    <div style="margin-left: 45px;">@Html.DisplayFor(model => model.Name)</div>
+    @Html.HiddenFor(model=>model.Score)
+    @Html.HiddenFor(model => model.SubAreaID)
+    @*@Html.DisplayFor(model => model.Name)*@   
+</li>
+
+
+
+

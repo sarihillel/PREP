@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PREP.DAL.TableViews.ReleaseCPView>
+@{IEnumerable<PREP.DAL.TableViews.ReleaseCPView> cps = ViewData.Model; }
+
+<script>
+    $(document).ready(function () {
+        $('#popUp').addClass('popup-publish');
+        $("#btn-prepare-mail").click(PrepareMail);
+        $(".exit-popup-btn").click(exitPopUpWindow);
+    });
+</script>
+
+ 
+
+@using (Html.BeginForm("SaveStatus", "Status", FormMethod.Post, new { @id = "PublishPopUp", @class = "popUpPusblish" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="button" class="exit-popup-btn x-btn" value="X" />
+    <h2 class="header-title">
+        @ViewBag.PopUpTitle
+    </h2>
+    <div class="popup-content">
+        <span>Please select the CP you would like to publish :</span>
+        @Html.DropDownList("list-cp", new SelectList(Model, "CPID", "CPName"), new { @class = "dropdown-cp", @id = "drop-cp" })
+
+    </div>
+    <hr />
+
+    <input type="button" value="Prepare A Mail" class="footer-button" id="btn-prepare-mail" />
+
+}
+

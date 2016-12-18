@@ -1,0 +1,21 @@
+﻿@model PREP.Models.ReleaseFamilyProducts
+
+<div class="form-group family">
+    @Html.HiddenFor(Model => Model.ID)
+    <div class="family-item">
+        @Html.CheckBoxFor(Model => Model.IsChecked, new { @class = "family-cb" })
+        <span title="@(this.Model.ToolTip)">
+            @Html.DisplayFor(Model => Model.Name)
+        </span>
+
+    </div>
+    <div class="products" style="display:@(this.Model.IsChecked ? "block" : "none");">
+        @Html.EditorFor(Model => Model.Products, "ReleaseProducts.cshtml", new { FamilyChecked = this.Model.IsChecked })
+        <a data-custom-product="Add-@(this.Model.Name.Replace(" ",""))" class="product-item add-custom-product" data-family="@(this.Model.Name.Replace(" ",""))" data-product=" @(ViewBag.additionalProdact)"> Add Product +</a>
+        <div class="product-item custom-product" style="display:none;">
+            <input type="checkbox" class="product-cb custom-cb" data-family="@(this.Model.Name.Replace(" ",""))" />
+            <input type="text" class="product-txt custom-txt form-control" data-family="@(this.Model.Name.Replace(" ",""))" />
+        </div>
+    </div>
+    <hr />
+</div>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PREP.Models.ReleaseAreaOwners>
+
+
+<h2 class="header-title">Area Owners</h2>
+<div class="detailsContent">
+    <div class="form-group row">
+        <div class="col-md-push-3 col-md-3">
+            <span class="header">Responsibility</span>
+        </div>
+        <div class="col-md-push-3 col-md-3">
+            <span class="header">Amdocs' focal-point</span>
+        </div>
+        <div class="col-md-push-3 col-sm-3">
+            <span class="header">Customers' focal-point</span>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="form-group row">
+            <div class="col-sm-3 area-name">
+                @Html.CheckBoxFor(modelItem => item.IsChecked, new { @class = "area-cb", @disabled = "disabled"})
+                <span style="margin-left:3px" title="@item.ToolTip" >
+                    @Html.DisplayFor(modelItem => item.AreaName)
+                </span>
+            </div>
+            @if (item.IsChecked)
+            {
+                <div class="col-sm-3">
+                    @Html.DisplayFor(modelItem => item.Resposibility, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-3">
+                    <div class="custom-row">@Html.DisplayFor(modelItem => item.AmdocsFocalPoint1Name)</div>
+                    <div>@Html.DisplayFor(modelItem => item.AmdocsFocalPoint2Name) </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="custom-row">@Html.DisplayFor(modelItem => item.CustomerFocalPoint1)</div>
+                    <div>@Html.DisplayFor(modelItem => item.CustomerFocalPoint2)</div>
+                </div>
+            }
+        </div>
+        <hr />
+    }
+</div>

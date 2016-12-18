@@ -1,0 +1,113 @@
+﻿@model PREP.Models.ReleaseTabs
+@{ var Template = ViewBag.Mode != "VIEW" ? "Edit" : "";
+    var CurrentTab = Request.QueryString["TabIndex"];}
+@{
+    bool IsEdited = Request.Path.ToUpper().Contains("EDIT");
+    bool IsAdded = Request.Path.ToUpper().Contains("ADD");
+}
+<div id="tabs">
+    <div class="navigation-bar">
+        <ul class="main-nav nav navbar-nav" data-tabs="tabs">
+            <li data-valid="" class="@( CurrentTab=="0"|| CurrentTab==null ?"active":"")">
+                <div class="tab-img sprite GeneralDetails"></div>
+                <a class="tab-name" data-toggle="tab" href="#GeneralDetails">General Details</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li data-valid="" class="@( CurrentTab=="1"?"active":"")">
+                <div class="tab-img sprite  ProductsInScope"></div>
+                <a class="tab-name" data-toggle="tab" href="#ProductsInScope">Products In Scope</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li data-valid="" class="@( CurrentTab=="2" ?"active":"")">
+                <div class="tab-img sprite  ReleaseCharacteristics"></div>
+                <a class="tab-name" data-toggle="tab" href="#ReleaseCharacteristics">Release Characteristics</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li data-valid="" class="@( CurrentTab=="3"?"active":"")">
+                <div class="tab-img sprite  CheckPointReviewMode"></div>
+                <a class="tab-name" data-toggle="tab" href="#CheckPointReviewMode">Check Point Review Mode</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li data-valid="" class="@( CurrentTab=="4" ?"active":"")">
+                <div class="tab-img sprite  ReleaseMilestones"></div>
+                <a class="tab-name" data-toggle="tab" href="#ReleaseMilestones">Release Milestones</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li data-valid="" class="@( CurrentTab=="5" ?"active":"")">
+                <div class="tab-img sprite  ReleaseStakeholders"></div>
+                <a class="tab-name" data-toggle="tab" href="#ReleaseStakeholders">Release Stakeholders</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li data-valid="" class="@( CurrentTab=="6" ?"active":"")">
+                <div class="tab-img sprite AreaOwners"></div>
+                <a class="tab-name" data-toggle="tab" href="#AreaOwners">Area Owners</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li data-valid="" class="@( CurrentTab=="7" ?"active":"")">
+                <div class="tab-img sprite  VendorFocalPoints"></div>
+                <a class="tab-name" data-toggle="tab" href="#VendorFocalPoints">Vendor Focal Points</a>
+                <div class="tab-status sprite ok"></div>
+            </li>
+            <li class="hide">
+                <img src="~/Content/Images/ErrStatus.png" class="tab-status" />
+                <span class="tab-mandatory">Mandatory Fields</span>
+            </li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("SaveRelease", "Releases", FormMethod.Post, new { @class = "form-tab" ,@id="formsave" }))
+    {
+        <div class="tab-content" id="tab-content" data-mode="@ViewBag.Mode" data-currentindex="@ViewBag.CurrentTabIndex">
+
+           
+            <div id="GeneralDetails" class='tab-pane  @( CurrentTab=="0" || CurrentTab== null? "active" : "" )'>
+                @Html.EditorFor(m => m.GeneralDetails, Template + "GeneralDetails")
+            </div>
+            <div id="ProductsInScope" class='tab-pane  @( CurrentTab=="1"?"active":"")'>
+                @*@Html.RenderPartial("EditReleaseCharacteristics", model: Model.ProductsInScope);*@
+                @Html.EditorFor(m => m.ProductsInScope, Template + "ProductsInScope")
+            </div>
+            <div id="ReleaseCharacteristics" class='tab-pane @( CurrentTab=="2"?"active":"")'>
+                @Html.EditorFor(m => m.ReleaseCharacteristic, Template + "ReleaseCharacteristicVM")
+            </div>
+            <div id="CheckPointReviewMode" class='tab-pane @( CurrentTab=="3"?"active":"")'>
+                @Html.EditorFor(m => m.CheckPointReviewMode, Template + "CheckPointReviewMode")
+            </div>
+            <div id="ReleaseMilestones" class='tab-pane  @( CurrentTab=="4"?"active":"")'>
+                @*@Html.EditorFor(model => Model.ReleaseMilestones)*@
+                @Html.EditorFor(m => m.ReleaseMilestones, Template + "ReleaseMilestones")
+            </div>
+            <div id="ReleaseStakeholders" class='tab-pane @( CurrentTab=="5"?"active":"")'>
+                @Html.EditorFor(m => m.ReleaseStakeholders, Template + "ReleaseStakeholders")
+            </div>
+            <div id="AreaOwners" class='tab-pane @( CurrentTab=="6"?"active":"")'>
+                @Html.EditorFor(m => m.AreaOwners, Template + "AreaOwners")
+            </div>
+            <div id="VendorFocalPoints" class='tab-pane @( CurrentTab=="7"?"active":"")'>
+                @Html.EditorFor(m => m.VendorFocalPoints, Template + "VendorFocalPoints")
+            </div>
+
+            <hr class="special-hr" />
+            <footer>
+                <div class="tabs-action-button">
+                    <input type="button" value="Cancel" class="footer-button" id="details-cancel" style=@(IsEdited!=true && IsAdded !=true? "display:none" : "") />
+                    <input type="button" value="Save" class="footer-button" id="details-save" style=@(IsEdited!=true && IsAdded !=true? "display:none" : "") />
+                    <input type="button" value="< Back" class="footer-button footer-button-nevigate" id="details-prev" />
+                    <input type="button" value="Next >" class="footer-button footer-button-nevigate" id="details-next" />
+                </div>
+            </footer>
+
+        </div>
+    }
+</div>
+
+
+
+
+@Html.Partial("_EmployeeSearchPartial")
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/EmployeeSearch")
+}

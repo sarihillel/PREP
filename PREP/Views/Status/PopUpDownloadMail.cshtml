@@ -1,0 +1,30 @@
+﻿<script>
+    $(document).ready(function () {
+     //   exitPopUpWindow();
+        $('#popUp').addClass('popup-publish');
+        $("#btn-prepare-mail").click(PrepareMail);
+        $(".exit-popup-btn").click(exitPopUpWindow);
+    });
+</script>
+
+
+
+@using (Html.BeginForm("SaveStatus", "Status", FormMethod.Post, new { @id = "PublishPopUp", @class = "popUpPusblish" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="button" class="exit-popup-btn x-btn" value="X" />
+    <h2 class="header-title">
+       Download Publication Mail
+    </h2>
+    <div class="popup-content">
+        <span>Please download publication mail :</span>
+      <a href="@(ViewBag.filePath)" download>Publication Mail</a>
+
+    </div>
+    <hr />
+
+}
+
+
+
+

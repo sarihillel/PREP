@@ -1,0 +1,221 @@
+﻿@model PREP.Models.CheckListVM
+@{
+
+    ViewBag.Title = "ViewCheckList";
+}
+
+<style>
+    .actualComplationBtn {
+        border-right-width: 1px !important;
+        border-left-width: 1px !important;
+        border-bottom-width: 2px !important;
+        border-top-width: 2px !important;
+        margin-left: 0px !important;
+    }
+
+    .selected-btn {
+        color: #00bbbb !important;
+        /*font-weight: bolder !important;*/
+        /* background-color: white; */
+        border-color: #00bbbb !important;
+    }
+</style>
+
+@section scripts{
+    <script src="~/Scripts/CheckList/bootstrap.min.js"></script>
+    <script src="~/Scripts/CheckList/moment.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/CheckList/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/CheckList/bootstrap-chosen.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/CheckList/fonts/stylesheet.css">
+    <script src="~/Scripts/jquery.loadTemplate-1.4.4.min.js"></script>
+    <script src="~/Scripts/jquery.tmpl.min.js"></script>
+    <script src="~/Scripts/jquery.tmplPlus.min.js"></script>
+    <script src="~/Scripts/CheckList/CheckList.js"></script>
+    <script src="~/Scripts/DataTable.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+    <link href="~/Content/CheckList/loading.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/CheckList/style.css">
+    <script>
+        var ReleaseID = @Model.ReleaseID;
+
+        $(document).ready(function (e) {
+            $('#loading').removeClass('hide');
+           $(".leave-scenario").click(leaveScreen);
+            defaultLeaveScenario();
+            $.ajax({
+                url:  "@Url.Action("GetCheckList")" ,
+                type: 'Post',
+                data:{ReleaseID:ReleaseID},
+                dataType: 'json',
+                async: true,
+                success: function (data) {
+                    //initial checkListRecords Options
+                    checklistObj= new checklistRecords(
+                                    {
+                                        JsonRecords:  data,
+                                        Record:{//recorrd params  ReleaseChecklistAnswerView Names
+                                            key:"ReleaseChecklistAnswerID",
+                                            RiskLevelID: "RiskLevelID",
+                                            HandlingStartDate: "HandlingStartDate",
+                                            Comments: "Comments",
+                                            AreaID:"AreaID",
+                                            AreaName:"AreaName",
+                                            SubAreaID:"SubAreaID",
+                                            SubAreaName:"SubAreaName",
+                                            Responsibility:"Responsibility",
+                                            QuestionOwnerID: "QuestionOwnerID",
+                                            QuestionOwnerName:"QuestionOwnerName",
+                                            ActualComplation:"ActualComplation",
+                                            LastAutomaticUpdateDate:"LastAutomaticUpdateDate",
+                                            LastModifiedDate:"LastModifiedDate"
+                                        },
+                                        SaveUrl: "@Url.Action("SaveCheckList")",
+                                        UserID: @Model.UserID,
+                                        ViewUrl: "@Html.Raw(Url.Action("Details", "Releases") + "/View/" + Model.ReleaseID)"
+                                    });
+                   $('#loading').addClass('hide');
+                }
+            });
+        });
+        function Viewchecklist() {
+            window.location.href = ROOT + '@Url.Action("ViewCheckList")' ;
+        }
+        function ViewStatus() {
+            leaveScreenForScreen(ROOT + '@Url.Action("ViewStatus", "Status")' ,"Do you want to save your changes before viewing Status?" )
+        }
+        function AppendRecord(record) {
+            $(".questions-container").append($("#template").tmpl(
+                                 { "model": record,
+                                     "riskLevelList":@Html.Raw(Model.RiskLevelList),
+                                     "responsibility":@Html.Raw(Model.Responsibility)}
+                                 ));
+        }
+    </script>
+}
+
+
+
+@{Html.RenderPartial("_TemplateRecord"); }
+
+
+
+<!-- main container starts here -->
+<div class="container-fluid checklist">
+    <div class="_table_container2 col-lg-12 _padding_left_0">
+        <!-- Buttons Starts -->
+        <ol class="breadcrumb _breadcrumb _btns _padding_left_0">
+            <li class="status_buttons current">
+                <button type="button" class="btn btn-info _no-border-radius-btn" disabled onclick="Viewchecklist()">View Checklist</button>
+            </li>
+            <li class="status_buttons">
+                <button type="button" class="btn btn-info _no-border-radius-btn" onclick="ViewStatus()">View Status</button>
+            </li>
+        </ol>
+        <!-- Buttons Ends -->
+    </div>
+    <div class="table-responsive col-lg-12 _table_container _padding_left_0 _padding_right_0">
+
+        <!-- Questions dropdown tab Starts -->
+        <div class="col-lg-12 col-md-12 col-xs-12 _pad_lr_0 _pad_tb_10">
+            <div class="col-lg-3 col-md-3 col-xs-3 _padding_right_0" align="left">
+                <label for="view" class="_label right">View:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <!-- Questions dropdown Starts -->
+                <select class="form-control width-sm-60 width-auto _top ChecklistFilter" id="ChecklistFilter" name="ChecklistFilter" onload='this.value=1;'>
+                    <option  value="0">All Questions</option>
+                    <option selected="selected"   value="1">My Pending Questions</option>
+                    <option value="2">New Effective Questions</option>
+                    <option value="3">Reinitiated Questions</option>
+                    <option value="4">Automatic Changed To Low</option>
+                    <option value="5">Effective Questions</option>
+                </select>
+                <!-- Questions dropdown Ends-->
+            </div>
+            <div class="_sort_by">
+                <label for="view" class="_label" style="padding-left:0px;">Sort By:&nbsp;</label>
+                <div class="form-group">
+                    <!--sort by value
+                        value is property of List records
+                        atribute type
+                        string ="string"
+                        number: "number"
+                        date:   "date"
+                        enum : "enum" , Note: add in ~/scripts/checklist/checklist.js  this.enums
+                    -->
+                    <select class="form-control width-sm-35 width-auto pull-left  _top" id="SortBy">
+                        <option value="QuestionCode" type="string">Question ID</option>
+                        <option value="AreaName">Area</option>
+                        <option value="SubAreaName">Sub Area</option>
+                        <option value="QuestionMilestoneName">Milestone</option>
+                        <option value="HandlingStartDate" type="date">Handling Start Date</option>
+                        <option value="ActualComplation" type="number">Actual Completion</option>
+                        <option value="RiskLevelID" type="enum">Risk level</option>
+                        <option value="ExtrenalFocalPoint">External Focal point</option>
+                        <option value="Responsibility" type="enum">Responsibility</option>
+                        <option value="QuestionOwnerName">Question Owner</option>
+                    </select>
+
+                    <button type="button" data-toggle="modal" data-target="#FilterModal" id="Filter" class="btn btn-info _filter">
+                        <img src="~/Content/CheckList/icons/filterV.png" class="_filterV">
+                        <img src="~/Content/CheckList/icons/filter.png" width="12" height="13">
+                        &nbsp;Filters
+                    </button>
+                </div>
+            </div>
+            <div class="_btn_group">
+                <button type="button" class="view_btn btn btn-info _no-border-radius-btn _transparent_btns" id="Cancel">Cancel</button>
+                <button type="button" class="view_btn btn btn-info _no-border-radius-btn _transparent_btns" id="Export">Export to Excel</button>
+                <button type="button" class="view_btn btn btn-info _no-border-radius-btn _transparent_btns" id="Save">Save</button>
+            </div>
+        </div>
+        <div class="form-group _pad_r_5">
+        </div>
+        @*Summary Line*@
+        <div class="col-lg-12 col-md-12 col-xs-12 _stats _pad_lr _pad_tb_10" id="divTotal">
+            <div class="col-lg-12 col-md-12 col-xs-12 _first-div">
+                <div>TOTAL: <b id="total"></b></div>
+                <div>Show Stopper: <b id="showStopper"></b></div>
+                <div>High: <b id="high"></b></div>
+                <div>Medium: <b id="medium"></b></div>
+                <div>Low: <b id="low"></b></div>
+                <div>None (As Planned): <b id="noneAsPlanned"></b></div>
+                <div>None (Closed): <b id="NoneClosed"></b></div>
+                <div>Other: <b id="other"></b></div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-xs-12 _pad_lr _pad_tb_10 table" id="table">
+
+            <div class="col-lg-12 col-md-12 col-xs-12 _row-heading_">
+                <ul class="_row-heading">
+                    <li class="width-9"><div class="col-lg-12">&nbsp;ID</div></li>
+                    <li class="_width_Qtxt"><div class="col-lg-12 _padding-0" ><img src="/Content/CheckList/icons/Question_Text_icon.png">&nbsp;Question Text</div></li>
+                    <li class="_width_risk_level"><div class="col-lg-12 col-md-12 col-xs-12 _padding-0"><img src="/Content/CheckList/icons/Actual_Completion_icon.png">&nbsp;Actual Completion &amp; Risk Level</div></li>
+                    <!--<td colspan="1" class="width-11-1024"><div class="col-lg-12 col-md-12 col-xs-12"><img src="css/icons/Risk_Level_icon.png">&nbsp;Risk Level</div></td>-->
+                    <li class="width-35 _comment"><div class="col-lg-12 col-md-12 col-xs-12 _padding-0"><img src="/Content/CheckList/icons/Comments_icon.png">&nbsp;Comments</div></li>
+                </ul>
+            </div>
+            @*<div class="cssload-thecube hide" id="loading">
+                <div class="cssload-cube cssload-c1"></div>
+                <div class="cssload-cube cssload-c2"></div>
+                <div class="cssload-cube cssload-c4"></div>
+                <div class="cssload-cube cssload-c3"></div>
+            </div>*@
+            <div class="cssload-container" id="loading">
+                <div class="cssload-whirlpool"></div>
+            </div>
+            <div class="_repeating_rows_ questions-container">
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Questions dropdown tab Ends -->
+
+@{Html.RenderPartial("_FilterModal"); }
+
+@Html.Partial("_EmployeeSearchPartial")

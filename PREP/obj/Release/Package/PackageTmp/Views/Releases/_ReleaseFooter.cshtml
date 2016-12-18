@@ -1,0 +1,71 @@
+﻿<div id="milestones-footer-wrapper">
+    <div id="milestones-footer-strip">
+        <div id="checkpoint-icon-wrapper">
+            <p><i class="sprite icon-37"></i><span>Check Point / SDR</span></p>
+        </div>
+
+        <div data-selectedmilstone="Scoping" id="milstone-strip-wrapper">
+            <div style="position: relative;">
+                <img class="dots-image" src="~/images/DotsBlue.png" id="blue-dots-image" />
+                <div id="scoping-milestone" class="milstone">
+                    <span class="milstone-strip-name">Scoping</span>
+                    <p class="p-date">
+                        @ViewData["Scoping"]
+                    </p>
+                    <p id="sdr2" class='@(ViewData["SDR2Kickoff"] !=null ? "checkpoint-link" : "")'
+                       title="@(ViewData["SDR2Kickoff"] !=null ? null : "No CP was created")"
+                       data-cpid="@(ViewData["SDR2Kickoffid"])">
+                        <i style="width: 24px" class="sprite icon-37 "></i>
+                        <span class="checklist-icon-title">SDR2 Kickoff<br /> @ViewData["SDR2Kickoff"]</span>
+                    </p>
+                </div>
+            </div>
+            <div style="position: relative;">
+                <img class="dots-image" src="~/images/Dotsgreen.png" id="green-dots-image" />
+                <div id="construct-milestone">
+                    <span class="milstone-strip-name">Construct</span><p class="p-date">@ViewData["Construct"]</p>
+                    <p class='@(ViewData["SDR4Targets"] !=null ? "checkpoint-link" : "")'
+                       title="@(ViewData["SDR4Targets"] !=null ? null : "No CP was created")"
+                       data-cpid="@(ViewData["SDR4Targetsid"])"
+                       name="Scoping">
+                        <i style="width: 24px" class="sprite icon-37 "></i>
+                        <span class="checklist-icon-title">SDR4 Targets<br /> @ViewData["SDR4Targets"]</span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="AT-milestone">
+                <span class="milstone-strip-name">AT</span><p>@ViewData["AT"]</p>
+
+            </div>
+            <div id="prod-milestone">
+                <span class="milstone-strip-name">Production</span>
+                <span class="milstone-strip-name span-BAU">BAU</span>
+                <br/>
+                <p name="Production" class="p-milestone-date">@ViewData["Production"]</p>
+                <p name="BAU" class="p-milestone-date p-BAU">@ViewData["BAU"]</p>
+            </div>
+            <div class="cps-wrapper">
+                <p id="sdr5" class='@(ViewData["SDR5Deployment"] !=null ? "checkpoint-link" : "")' title="@(ViewData["SDR5Deployment"] !=null? null : "No CP was created")"
+                   data-cpid="@(ViewData["SDR5Deploymentid"])">
+                    <i style="width: 24px" class="sprite icon-37 "></i>
+                    <span class="checklist-icon-title">SDR5 Deployment<br /> @ViewData["SDR5Deployment"]</span>
+                </p>
+                <p id="sdr6" class='@(ViewData["SDR6Operate"] !=null ? "checkpoint-link" : "")' title="@(ViewData["SDR6Operate"] !=null ? null : "No CP was created")"
+                   data-cpid="@(ViewData["SDR6Operateid"])" name="AT">
+                    <i style="width: 24px" class="sprite icon-37 "></i>
+                    <span class="checklist-icon-title">SDR6 Operate<br /> @ViewData["SDR6Operate"]</span>
+                </p>
+                <p id="sdr7" class='@(ViewData["SDR7BAU"] !=null ? "checkpoint-link" : "")' title="@(ViewData["SDR7BAU"] !=null ? null : "No CP was created")"
+                   data-cpid="@(ViewData["SDR7BAUid"])" name="Production">
+                    <i style="width: 24px" class="sprite icon-37 checklist-icon"></i>
+                    <span class="checklist-icon-title">
+                        SDR7 BAU <br />
+                        @ViewData["SDR7BAU"]
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

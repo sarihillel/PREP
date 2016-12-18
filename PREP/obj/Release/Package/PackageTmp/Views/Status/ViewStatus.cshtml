@@ -1,0 +1,99 @@
+﻿@model PREP.Models.StatusVM
+
+
+<script src="~/Scripts/CheckList/bootstrap.min.js"></script>
+<script src="~/Scripts/CheckList/moment.min.js"></script>
+<script src="~/Scripts/CheckList/chosen.jquery.js"></script>
+<script src="~/Scripts/CheckList/tooltip.js"></script>
+<link rel="stylesheet" href="~/Content/CheckList/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/CheckList/bootstrap-chosen.css" />
+<link rel="stylesheet" href="~/Content/CheckList/style.css">
+<link rel="stylesheet" type="text/css" href="~/Content/CheckList/fonts/stylesheet.css">
+<link href="~/Content/Shared/Layout.css" rel="stylesheet" />
+
+<link href="http://localhost:58046/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/Releases/Header.css" rel="stylesheet" />
+<link href="~/Content/Releases/Footer.css" rel="stylesheet" />
+
+<link href="~/Content/Shared/Responsive.css" rel="stylesheet" />
+<link href="~/Content/Status.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/Sprite-status.css">
+<script src="~/Scripts/Status/Status.js"></script>
+<script src="~/Scripts/html2canvas.js"></script>
+<script src="~/Scripts/Footer.js"></script>
+<link href="~/Content/Releases/Navigation.css" rel="stylesheet" />
+
+
+
+<script>
+    function Viewchecklist() {
+        window.location.href = ROOT + '@Url.Action("ViewCheckList", "CheckList")';
+    }
+</script>
+@using (Html.BeginForm("SaveStatus", "Status", FormMethod.Post, new { @id = "form-status" }))
+{
+    @Html.HiddenFor(model => model.ReleaseID, new { @id = "ReleaseID" })
+    @Html.HiddenFor(model => model.CPID, new { @id = "CPID" })
+    @Html.HiddenFor(model => model.IsDraft, new { @id = "IsDraft" })
+<div class="container-fluid">
+    <div class="_table_container2 col-lg-12 _padding_left_0">
+        <!-- Breadcum Starts -->
+        @*<ol class="breadcrumb _breadcrumb _padding_left_0">
+            <li><a href="#">Releases</a></li>
+            <li class="active">EE Excalibur Feb2015</li>
+        </ol>*@
+        <!-- Breadcum Ends -->
+        <!-- Buttons Starts -->
+        <ol class="breadcrumb _breadcrumb _btns _padding_left_0">
+            <li class="status_buttons">
+                <button type="button" class="btn btn-info _no-border-radius-btn" onclick="Viewchecklist()">View Checklist</button>
+            </li>
+            <li class="status_buttons current">
+                <button type="button" id="view-status-btn" class="btn btn-info _no-border-radius-btn" disabled>View Status</button>
+            </li>
+        </ol>
+        <!-- Buttons Ends -->
+    </div>
+    <div class="table-responsive col-lg-12 _table_container _padding_left_0 _padding_right_0">
+
+            @Html.Action("_ViewStatusHeader", "Status", new { releaseId = Model.ReleaseID })
+
+            @*highlightText*@
+        <div id="status-container">
+            <!-- Area Readiness Start -->
+            <div class="col-lg-12 col-md-12 col-xs-12 _padding_left_0" sty-le="height:700px; overflow-y:scroll;">
+                <h3 class="_h3 _area">Area Readiness:</h3>
+                @Html.EditorFor(model => model.AreaScores)
+            </div>
+            <!-- Area Readiness End -->
+
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <h3 class="_h3 _highlights">Overall Readiness Highlights & Summary:</h3>
+                <div class="col-lg-12 col-md-12 col-xs-12 _higlights_div">
+                    @Html.HiddenFor(model => model.StatusText.ReleaseID, new { Value = Model.Details.ReleaseID })
+                    @Html.TextAreaFor(model => model.StatusText.HighLightText, new { @class = "col-lg-12 col-md-12 col-xs-12", @placeholder = "Add Free text for Readiness Highlights", @style = "max-width: none;" })
+                </div>
+            </div>
+
+            @*@Html.Action("_HighLightText", "Status", new { releaseId = Model.Details.ReleaseID })*@
+
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <h3 class="_h3 _timeline">Release Timeline:</h3>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div id="details-footer-wrapper">
+                    @Html.Action("_ReleaseFooter", "Releases", new { releaseId = Model.Details.ReleaseID })
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 _areanotes">
+                <h3 class="_h3 _area_notes">Area Notes:</h3>
+                @for (int i = 0; i < Model.AreaScores.Count(); i++)
+                {
+                    @Html.EditorFor(m => Model.AreaScores[i], "AreaNotes")
+                }
+            </div>
+            @Html.Action("_ReleaseStakeholders", "Status", new { releaseId = Model.Details.ReleaseID })
+        </div>
+    </div>
+</div>
+    }

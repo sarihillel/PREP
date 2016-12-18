@@ -1,0 +1,9 @@
+﻿@model PREP.Models.ReleaseCharacteristicVM
+<div>
+    @Html.CheckBoxFor(x => Model.IsChecked, new { @class = "aaa " })
+    @Html.HiddenFor(x => Model.CharacteristicID)
+    <span title="@(Model.ToolTip)">
+        @Html.DisplayFor(z => Model.CharacteristicName)
+    </span>
+    <hr />
+</div>

@@ -1,0 +1,12 @@
+﻿@model PREP.Models.ReleaseProducts
+
+
+<div class="product-item">
+    @Html.HiddenFor(Model => Model.ID)
+    @Html.HiddenFor(Model => Model.FamilyProductID)
+    @Html.CheckBoxFor(Model => Model.IsChecked, new { @class = "product-cb " })
+    <span title="@(this.Model.ToolTip)">
+        @Html.DisplayFor(Model => Model.Name)
+    </span>
+</div>
+

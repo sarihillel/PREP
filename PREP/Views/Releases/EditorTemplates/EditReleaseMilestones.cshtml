@@ -1,0 +1,23 @@
+﻿@model IEnumerable<PREP.Models.ReleaseMilestoneVM>
+
+<div class="form-horizontal">
+    <h2 class="header-title">Release Milestones</h2>
+    <div class="detailsContent">
+        <div class="detailsHeader">
+            <div class=" form-group ">
+                <div class="item-lable  input-group">
+                    @*Html.DisplayNameFor(model => model.ReleaseID)*@
+                </div>
+                <div class="col-md-6 ">
+                    <span class="header">@Html.DisplayNameFor(model => model.MilestoneDate)</span>
+                </div>
+            </div>
+        </div>
+        @*<div class="detailsContent noheader">*@
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            @Html.EditorFor(m => Model.ToList()[i])
+        }
+    </div>
+</div>
+

@@ -1,0 +1,18 @@
+﻿@model PREP.Models.AreaScoreVM
+
+<div class="_box_shadow">
+    @*<h4 class="_h4">
+        @Html.DisplayFor(model => model.Name)
+        <div class="sprite-status-big @(Model.Trand)-big pull-right header_icon" style="margin-right: 5px;margin-top: 6px;"></div>
+        <div class="sprite-status-big @(Model.ScoreStatus)-big pull-right header_icon" style="margin-right: 7px;margin-top: 6px;"></div>
+    </h4>*@
+    <h4 class="_h4">
+        <div class="left header-center">@Html.DisplayFor(model => model.Name)</div>
+        <div class="sprite-status-big @(Model.ScoreStatus)-big left" style="margin-right:5px;margin-left:5px"></div>
+        <div class="sprite-status-big @(Model.Trand)-big left"></div>
+    </h4>
+    <ul>
+        @Html.HiddenFor(model=>model.AreaID,new { Value=Model.AreaID,@hidden="hidden"})
+        @Html.TextAreaFor(model => model.StatusAreaText, new { @class = "area-notes", @placeholder = "Add Notes"@*,@rows="3"*@ })
+    </ul>
+</div>

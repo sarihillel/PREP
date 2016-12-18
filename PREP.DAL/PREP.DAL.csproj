@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F293AA75-1051-4354-A333-2E57595D3CDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PREP.DAL</RootNamespace>
+    <AssemblyName>PREP.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.BulkInsert, Version=6.0.2.8, Culture=neutral, PublicKeyToken=630a17433349cb76, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.BulkInsert-ef6.6.0.2.8\lib\Net45\EntityFramework.BulkInsert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.0.0.7, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.0.0.7\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Functions\Extensions\EnumExtentions.cs" />
+    <Compile Include="Functions\Extensions\ExpressionExtentions.cs" />
+    <Compile Include="Functions\Extensions\StringExtensions.cs" />
+    <Compile Include="Functions\OutputDebug.cs" />
+    <Compile Include="Migrations\201601130951330_initial.cs" />
+    <Compile Include="Migrations\201601130951330_initial.Designer.cs">
+      <DependentUpon>201601130951330_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601131011512_updateQuestions.cs" />
+    <Compile Include="Migrations\201601131011512_updateQuestions.Designer.cs">
+      <DependentUpon>201601131011512_updateQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601131023188_updateadminvalue.cs" />
+    <Compile Include="Migrations\201601131023188_updateadminvalue.Designer.cs">
+      <DependentUpon>201601131023188_updateadminvalue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601131331558_updateQuestionStakeholder.cs" />
+    <Compile Include="Migrations\201601131331558_updateQuestionStakeholder.Designer.cs">
+      <DependentUpon>201601131331558_updateQuestionStakeholder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601131338463_updateQuestionStakeholder2.cs" />
+    <Compile Include="Migrations\201601131338463_updateQuestionStakeholder2.Designer.cs">
+      <DependentUpon>201601131338463_updateQuestionStakeholder2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601131339410_updateQuestionStakeholder3.cs" />
+    <Compile Include="Migrations\201601131339410_updateQuestionStakeholder3.Designer.cs">
+      <DependentUpon>201601131339410_updateQuestionStakeholder3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601141457317_addParamerType.cs" />
+    <Compile Include="Migrations\201601141457317_addParamerType.Designer.cs">
+      <DependentUpon>201601141457317_addParamerType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601141511269_addParamerType2.cs" />
+    <Compile Include="Migrations\201601141511269_addParamerType2.Designer.cs">
+      <DependentUpon>201601141511269_addParamerType2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601141530131_deleteQuestionSubArea.cs" />
+    <Compile Include="Migrations\201601141530131_deleteQuestionSubArea.Designer.cs">
+      <DependentUpon>201601141530131_deleteQuestionSubArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601141532325_addQuestionArea.cs" />
+    <Compile Include="Migrations\201601141532325_addQuestionArea.Designer.cs">
+      <DependentUpon>201601141532325_addQuestionArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601170830076_addreleaseactivitylog.cs" />
+    <Compile Include="Migrations\201601170830076_addreleaseactivitylog.Designer.cs">
+      <DependentUpon>201601170830076_addreleaseactivitylog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601201104546_createLink.cs" />
+    <Compile Include="Migrations\201601201104546_createLink.Designer.cs">
+      <DependentUpon>201601201104546_createLink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601240812286_questions.cs" />
+    <Compile Include="Migrations\201601240812286_questions.Designer.cs">
+      <DependentUpon>201601240812286_questions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601240819587_questionemloyee.cs" />
+    <Compile Include="Migrations\201601240819587_questionemloyee.Designer.cs">
+      <DependentUpon>201601240819587_questionemloyee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601240956399_EmployeeFullName.cs" />
+    <Compile Include="Migrations\201601240956399_EmployeeFullName.Designer.cs">
+      <DependentUpon>201601240956399_EmployeeFullName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601251018204_updatequestionorder.cs" />
+    <Compile Include="Migrations\201601251018204_updatequestionorder.Designer.cs">
+      <DependentUpon>201601251018204_updatequestionorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601251142010_addOrdertoSubArea.cs" />
+    <Compile Include="Migrations\201601251142010_addOrdertoSubArea.Designer.cs">
+      <DependentUpon>201601251142010_addOrdertoSubArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601251223230_addorder.cs" />
+    <Compile Include="Migrations\201601251223230_addorder.Designer.cs">
+      <DependentUpon>201601251223230_addorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601251226089_createArcive.cs" />
+    <Compile Include="Migrations\201601251226089_createArcive.Designer.cs">
+      <DependentUpon>201601251226089_createArcive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601251304187_updateordercolumn.cs" />
+    <Compile Include="Migrations\201601251304187_updateordercolumn.Designer.cs">
+      <DependentUpon>201601251304187_updateordercolumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601251349513_createArciveTable.cs" />
+    <Compile Include="Migrations\201601251349513_createArciveTable.Designer.cs">
+      <DependentUpon>201601251349513_createArciveTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601251358243_updateArcive1.cs" />
+    <Compile Include="Migrations\201601251358243_updateArcive1.Designer.cs">
+      <DependentUpon>201601251358243_updateArcive1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601260927331_updatechecklistanswer.cs" />
+    <Compile Include="Migrations\201601260927331_updatechecklistanswer.Designer.cs">
+      <DependentUpon>201601260927331_updatechecklistanswer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601260938376_updaterisklevel.cs" />
+    <Compile Include="Migrations\201601260938376_updaterisklevel.Designer.cs">
+      <DependentUpon>201601260938376_updaterisklevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601260953112_addEmployeeToAccount.cs" />
+    <Compile Include="Migrations\201601260953112_addEmployeeToAccount.Designer.cs">
+      <DependentUpon>201601260953112_addEmployeeToAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601261057430_addSubAreaToReleaseChecklistAnswer.cs" />
+    <Compile Include="Migrations\201601261057430_addSubAreaToReleaseChecklistAnswer.Designer.cs">
+      <DependentUpon>201601261057430_addSubAreaToReleaseChecklistAnswer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601261118133_updateResponsibility.cs" />
+    <Compile Include="Migrations\201601261118133_updateResponsibility.Designer.cs">
+      <DependentUpon>201601261118133_updateResponsibility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601261123008_MilestoneIDnotNullinQuestion.cs" />
+    <Compile Include="Migrations\201601261123008_MilestoneIDnotNullinQuestion.Designer.cs">
+      <DependentUpon>201601261123008_MilestoneIDnotNullinQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601261325310_updatePublicationSentByID.cs" />
+    <Compile Include="Migrations\201601261325310_updatePublicationSentByID.Designer.cs">
+      <DependentUpon>201601261325310_updatePublicationSentByID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601261405483_addMDMCode.cs" />
+    <Compile Include="Migrations\201601261405483_addMDMCode.Designer.cs">
+      <DependentUpon>201601261405483_addMDMCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601271426341_JoinPublicationAndReleaseCPTables.cs" />
+    <Compile Include="Migrations\201601271426341_JoinPublicationAndReleaseCPTables.Designer.cs">
+      <DependentUpon>201601271426341_JoinPublicationAndReleaseCPTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601280840481_AddEmployeeSendByID.cs" />
+    <Compile Include="Migrations\201601280840481_AddEmployeeSendByID.Designer.cs">
+      <DependentUpon>201601280840481_AddEmployeeSendByID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601311325437_addSubAreaScore.cs" />
+    <Compile Include="Migrations\201601311325437_addSubAreaScore.Designer.cs">
+      <DependentUpon>201601311325437_addSubAreaScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601311337335_deleteAreaScore.cs" />
+    <Compile Include="Migrations\201601311337335_deleteAreaScore.Designer.cs">
+      <DependentUpon>201601311337335_deleteAreaScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601311350181_addAreaScore.cs" />
+    <Compile Include="Migrations\201601311350181_addAreaScore.Designer.cs">
+      <DependentUpon>201601311350181_addAreaScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601311614551_updateSubAreaScore.cs" />
+    <Compile Include="Migrations\201601311614551_updateSubAreaScore.Designer.cs">
+      <DependentUpon>201601311614551_updateSubAreaScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602010830589_deleteSubAreaScore.cs" />
+    <Compile Include="Migrations\201602010830589_deleteSubAreaScore.Designer.cs">
+      <DependentUpon>201602010830589_deleteSubAreaScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602010843413_deleteAreaScore1.cs" />
+    <Compile Include="Migrations\201602010843413_deleteAreaScore1.Designer.cs">
+      <DependentUpon>201602010843413_deleteAreaScore1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602010845458_addAreaScore1.cs" />
+    <Compile Include="Migrations\201602010845458_addAreaScore1.Designer.cs">
+      <DependentUpon>201602010845458_addAreaScore1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602010850132_addSubAreaScore1.cs" />
+    <Compile Include="Migrations\201602010850132_addSubAreaScore1.Designer.cs">
+      <DependentUpon>201602010850132_addSubAreaScore1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602021214472_updateAreaScore.cs" />
+    <Compile Include="Migrations\201602021214472_updateAreaScore.Designer.cs">
+      <DependentUpon>201602021214472_updateAreaScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602021314390_updateAreaScoreRelationship.cs" />
+    <Compile Include="Migrations\201602021314390_updateAreaScoreRelationship.Designer.cs">
+      <DependentUpon>201602021314390_updateAreaScoreRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602021412332_updateAreaScoreRelationship1.cs" />
+    <Compile Include="Migrations\201602021412332_updateAreaScoreRelationship1.Designer.cs">
+      <DependentUpon>201602021412332_updateAreaScoreRelationship1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602031345290_updateActualComplationinReleaseChecklistAnswerArcive.cs" />
+    <Compile Include="Migrations\201602031345290_updateActualComplationinReleaseChecklistAnswerArcive.Designer.cs">
+      <DependentUpon>201602031345290_updateActualComplationinReleaseChecklistAnswerArcive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602091012526_updateLastAutomaticUpdateDate.cs" />
+    <Compile Include="Migrations\201602091012526_updateLastAutomaticUpdateDate.Designer.cs">
+      <DependentUpon>201602091012526_updateLastAutomaticUpdateDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602110832437_AccountName.cs" />
+    <Compile Include="Migrations\201602110832437_AccountName.Designer.cs">
+      <DependentUpon>201602110832437_AccountName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602141045139_addareaIdtoCheckList.cs" />
+    <Compile Include="Migrations\201602141045139_addareaIdtoCheckList.Designer.cs">
+      <DependentUpon>201602141045139_addareaIdtoCheckList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602141052572_updatenullableinchecklist.cs" />
+    <Compile Include="Migrations\201602141052572_updatenullableinchecklist.Designer.cs">
+      <DependentUpon>201602141052572_updatenullableinchecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602141100530_commentToQuestions.cs" />
+    <Compile Include="Migrations\201602141100530_commentToQuestions.Designer.cs">
+      <DependentUpon>201602141100530_commentToQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602151216272_productComments.cs" />
+    <Compile Include="Migrations\201602151216272_productComments.Designer.cs">
+      <DependentUpon>201602151216272_productComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602151232134_deleteproductquestion.cs" />
+    <Compile Include="Migrations\201602151232134_deleteproductquestion.Designer.cs">
+      <DependentUpon>201602151232134_deleteproductquestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602151234461_createQuestionProduct.cs" />
+    <Compile Include="Migrations\201602151234461_createQuestionProduct.Designer.cs">
+      <DependentUpon>201602151234461_createQuestionProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602160903503_addColumnIsDeletedToQuestion.cs" />
+    <Compile Include="Migrations\201602160903503_addColumnIsDeletedToQuestion.Designer.cs">
+      <DependentUpon>201602160903503_addColumnIsDeletedToQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602210746030_setDefaultValActualComplition.cs" />
+    <Compile Include="Migrations\201602210746030_setDefaultValActualComplition.Designer.cs">
+      <DependentUpon>201602210746030_setDefaultValActualComplition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602211612266_changeIsVisibleToIsDeleted.cs" />
+    <Compile Include="Migrations\201602211612266_changeIsVisibleToIsDeleted.Designer.cs">
+      <DependentUpon>201602211612266_changeIsVisibleToIsDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602221401086_addIsDeletedToCpQuestionSubArea.cs" />
+    <Compile Include="Migrations\201602221401086_addIsDeletedToCpQuestionSubArea.Designer.cs">
+      <DependentUpon>201602221401086_addIsDeletedToCpQuestionSubArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603060950508_addParameterRelathionID.cs" />
+    <Compile Include="Migrations\201603060950508_addParameterRelathionID.Designer.cs">
+      <DependentUpon>201603060950508_addParameterRelathionID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603141358364_oops.cs" />
+    <Compile Include="Migrations\201603141358364_oops.Designer.cs">
+      <DependentUpon>201603141358364_oops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603141401475_www.cs" />
+    <Compile Include="Migrations\201603141401475_www.Designer.cs">
+      <DependentUpon>201603141401475_www.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603201210152_chracteristic_order_change.cs" />
+    <Compile Include="Migrations\201603201210152_chracteristic_order_change.Designer.cs">
+      <DependentUpon>201603201210152_chracteristic_order_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\.cs" />
+    <Compile Include="Migrations\.Designer.cs">
+      <DependentUpon>.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603291341058_ScoresTempTables1.cs" />
+    <Compile Include="Migrations\201603291341058_ScoresTempTables1.Designer.cs">
+      <DependentUpon>201603291341058_ScoresTempTables1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603291503284_change_subAreaScore_FK.cs" />
+    <Compile Include="Migrations\201603291503284_change_subAreaScore_FK.Designer.cs">
+      <DependentUpon>201603291503284_change_subAreaScore_FK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603310804332_DeleteTempScores.cs" />
+    <Compile Include="Migrations\201603310804332_DeleteTempScores.Designer.cs">
+      <DependentUpon>201603310804332_DeleteTempScores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AreaScore.cs" />
+    <Compile Include="Models\AreaScoreTemp.cs" />
+    <Compile Include="Models\Links.cs" />
+    <Compile Include="Models\PublicationTemp.cs" />
+    <Compile Include="Models\ReleaseChecklistAnswerArcive.cs" />
+    <Compile Include="Models\SubAreaScore.cs" />
+    <Compile Include="Models\SubAreaScoreTemp.cs" />
+    <Compile Include="Repositories\IAreaScoreTempRepository.cs" />
+    <Compile Include="Repositories\IAreaScoreRepository.cs" />
+    <Compile Include="Repositories\ILinksRepository.cs" />
+    <Compile Include="Repositories\IPublicationTempRepository.cs" />
+    <Compile Include="Repositories\IReleaseChecklistAnswerArciveRepository.cs" />
+    <Compile Include="Repositories\ISubAreaScoreTempRepository.cs" />
+    <Compile Include="Repositories\ISubAreaScoreRepository.cs" />
+    <Compile Include="Repositories\Memory\AreaScoreTempRepository.cs" />
+    <Compile Include="Repositories\Memory\AreaScoreRepository.cs" />
+    <Compile Include="Repositories\Memory\LinksRepository.cs" />
+    <Compile Include="Repositories\Memory\PublicationTempRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseChecklistAnswerArciveRepository.cs" />
+    <Compile Include="Repositories\Memory\SubAreaScoreTempRepository.cs" />
+    <Compile Include="Repositories\Memory\SubAreaScoreRepository.cs" />
+    <Compile Include="StaticResources.cs" />
+    <Compile Include="TableViews\HistoryView.cs" />
+    <Compile Include="TableViews\Options.cs" />
+    <Compile Include="Functions\Errors.cs" />
+    <Compile Include="Repositories\IRiskLevelRepository.cs" />
+    <Compile Include="Models\RiskLevel.cs" />
+    <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\ActivityLog.cs" />
+    <Compile Include="Models\CriteriaCPCreation.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeInterface.cs" />
+    <Compile Include="Models\FieldValueData.cs" />
+    <Compile Include="Functions\Log.cs" />
+    <Compile Include="Models\History.cs" />
+    <Compile Include="Models\OurVision.cs" />
+    <Compile Include="Models\PermissionType.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\CPReviewMode.cs" />
+    <Compile Include="Models\HRMSInterface.cs" />
+    <Compile Include="Models\QuestionCharacteristic.cs" />
+    <Compile Include="Models\QuestionCPRevMode.cs" />
+    <Compile Include="Models\QuestionCPRevModeQ.cs" />
+    <Compile Include="Models\QuestionFamilyProduct.cs" />
+    <Compile Include="Models\QuestionProduct.cs" />
+    <Compile Include="Models\QuestionStakeholder.cs" />
+    <Compile Include="Models\QuestionArea.cs" />
+    <Compile Include="Models\ReleaseCPReviewMode.cs" />
+    <Compile Include="Models\ReleaseProduct.cs" />
+    <Compile Include="Models\ReleaseVendor.cs" />
+    <Compile Include="Models\Stakeholder.cs" />
+    <Compile Include="Models\HRMSFields.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\ReleaseChecklistAnswer.cs" />
+    <Compile Include="Models\ReleaseStakeholder.cs" />
+    <Compile Include="Models\StatusAreaText.cs" />
+    <Compile Include="Models\StatusText.cs" />
+    <Compile Include="Models\SubArea.cs" />
+    <Compile Include="Models\CalculatedField.cs" />
+    <Compile Include="Models\Characteristic.cs" />
+    <Compile Include="Models\ColumnMapping.cs" />
+    <Compile Include="Models\CP.cs" />
+    <Compile Include="Models\CPReviewModeQ.cs" />
+    <Compile Include="Models\FamilyProduct.cs" />
+    <Compile Include="Models\Milestone.cs" />
+    <Compile Include="Models\Permission.cs" />
+    <Compile Include="Models\Publication.cs" />
+    <Compile Include="Models\Release.cs" />
+    <Compile Include="Models\ReleaseAreaOwner.cs" />
+    <Compile Include="Models\ReleaseCharacteristic.cs" />
+    <Compile Include="Models\ReleaseCP.cs" />
+    <Compile Include="Models\ReleaseCPReviewModeQ.cs" />
+    <Compile Include="Models\ReleaseFamilyProduct.cs" />
+    <Compile Include="Models\ReleaseMilestone.cs" />
+    <Compile Include="Models\SystemConfig.cs" />
+    <Compile Include="Models\Table.cs" />
+    <Compile Include="Models\UseFullLinks.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Models\VendorAreas.cs" />
+    <Compile Include="Models\WeeklyReports.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IActivityRepository.cs" />
+    <Compile Include="Repositories\IActivityLogRepository.cs" />
+    <Compile Include="Repositories\IAreaRepository.cs" />
+    <Compile Include="Repositories\IColumnMappingRepository.cs" />
+    <Compile Include="Repositories\ICPReviewModeRepository.cs" />
+    <Compile Include="Repositories\ICriteriaCPCreationRepository.cs" />
+    <Compile Include="Repositories\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\IFieldValueDataRepository.cs" />
+    <Compile Include="Repositories\IHistoryRepository.cs" />
+    <Compile Include="Repositories\IHRMSInterfaceRepository.cs" />
+    <Compile Include="Repositories\IHRMSFieldsRepository.cs" />
+    <Compile Include="Repositories\IOurVisionRepository.cs" />
+    <Compile Include="Repositories\IPermissionTypeRepository.cs" />
+    <Compile Include="Repositories\IProductRepository.cs" />
+    <Compile Include="Repositories\IQuestionAreaRepository.cs" />
+    <Compile Include="Repositories\IQuestionCharacteristicRepository.cs" />
+    <Compile Include="Repositories\IQuestionCPRevModeQRepository.cs" />
+    <Compile Include="Repositories\IQuestionCPRevModeRepository.cs" />
+    <Compile Include="Repositories\IQuestionFamilyProductRepository.cs" />
+    <Compile Include="Repositories\IQuestionProductRepository.cs" />
+    <Compile Include="Repositories\IQuestionRepository.cs" />
+    <Compile Include="Repositories\IQuestionStakeholderRepository.cs" />
+    <Compile Include="Repositories\IReleaseCPReviewModeRepository.cs" />
+    <Compile Include="Repositories\IReleaseProductRepository.cs" />
+    <Compile Include="Repositories\IReleaseVendorRepository.cs" />
+    <Compile Include="Repositories\IStatusAreaTextRepository.cs" />
+    <Compile Include="Repositories\IStatusTextRepository.cs" />
+    <Compile Include="Repositories\ISubAreaRepository.cs" />
+    <Compile Include="Repositories\ISystemConfigRepository.cs" />
+    <Compile Include="Repositories\IUseFullLinksRepository.cs" />
+    <Compile Include="Repositories\IVendorAreasRepository.cs" />
+    <Compile Include="Repositories\IVendorRepository.cs" />
+    <Compile Include="Repositories\ICalculatedFieldRepository.cs" />
+    <Compile Include="Repositories\IFamilyProductRepository.cs" />
+    <Compile Include="Repositories\IStakeholderRepository.cs" />
+    <Compile Include="Repositories\IPermissionRepository.cs" />
+    <Compile Include="Repositories\IPublicationRepository.cs" />
+    <Compile Include="Repositories\IReleaseAreaOwnerRepository.cs" />
+    <Compile Include="Repositories\IReleaseCPReviewModeQRepository.cs" />
+    <Compile Include="Repositories\ICPReviewModeQRepository.cs" />
+    <Compile Include="Repositories\IReleaseCharacteristicRepository.cs" />
+    <Compile Include="Repositories\ICharacteristicRepository.cs" />
+    <Compile Include="Repositories\IAccountRepository.cs" />
+    <Compile Include="Repositories\ICPRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
+    <Compile Include="Repositories\IReleaseFamilyProductRepository.cs" />
+    <Compile Include="Repositories\IReleaseChecklistAnswerRepository.cs" />
+    <Compile Include="Repositories\IReleaseStakeholderRepository.cs" />
+    <Compile Include="Repositories\IReleaseMilestoneRepository.cs" />
+    <Compile Include="Repositories\IMilestoneRepository.cs" />
+    <Compile Include="Repositories\IReleaseCPRepository.cs" />
+    <Compile Include="Repositories\IReleaseRepository.cs" />
+    <Compile Include="Repositories\ITableRepository.cs" />
+    <Compile Include="Repositories\IWeeklyReportsRepository.cs" />
+    <Compile Include="Repositories\Memory\ActivityRepository.cs" />
+    <Compile Include="Repositories\Memory\ActivityLogRepository.cs" />
+    <Compile Include="Repositories\Memory\AreaRepository.cs" />
+    <Compile Include="Repositories\Memory\ColumnMappingRepository.cs" />
+    <Compile Include="Repositories\Memory\CPReviewModeRepository.cs" />
+    <Compile Include="Repositories\Memory\CriteriaCPCreationRepository.cs" />
+    <Compile Include="Repositories\Memory\EmployeeRepository.cs" />
+    <Compile Include="Repositories\Memory\FieldValueDataRepository.cs" />
+    <Compile Include="Repositories\Memory\HistoryRepository.cs" />
+    <Compile Include="Repositories\Memory\HRMSInterfaceRepository.cs" />
+    <Compile Include="Repositories\Memory\HRMSFieldsRepository.cs" />
+    <Compile Include="Functions\Extensions\IQueryableExtensions.cs" />
+    <Compile Include="Repositories\Memory\OurVisionRepository.cs" />
+    <Compile Include="Repositories\Memory\PermissionTypeRepository.cs" />
+    <Compile Include="Repositories\Memory\ProductRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionCharacteristicRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionCPRevModeQRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionCPRevModeRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionFamilyProductRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionProductRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionStakeholderRepository.cs" />
+    <Compile Include="Repositories\Memory\QuestionAreaRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseCPRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseCPReviewModeRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseProductRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseVendorRepository.cs" />
+    <Compile Include="Repositories\Memory\StatusAreaTextRepository.cs" />
+    <Compile Include="Repositories\Memory\StatusTextRepository.cs" />
+    <Compile Include="Repositories\Memory\SubAreaRepository.cs" />
+    <Compile Include="Repositories\Memory\SystemConfigRepository.cs" />
+    <Compile Include="Repositories\Memory\UseFullLinksRepository.cs" />
+    <Compile Include="Repositories\Memory\VendorAreasRepository.cs" />
+    <Compile Include="Repositories\Memory\VendorRepository.cs" />
+    <Compile Include="Repositories\Memory\AccountRepository.cs" />
+    <Compile Include="Repositories\Memory\CalculatedFieldRepository.cs" />
+    <Compile Include="Repositories\Memory\StakeholderRepository.cs" />
+    <Compile Include="Repositories\Memory\PermissionRepository.cs" />
+    <Compile Include="Repositories\Memory\PublicationRepository.cs" />
+    <Compile Include="Repositories\Memory\FamilyProductRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseAreaOwnerRepository.cs" />
+    <Compile Include="Repositories\Memory\CPReviewModeQRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseCPReviewModeQRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseCharacteristicRepository.cs" />
+    <Compile Include="Repositories\Memory\CharacteristicRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseFamilyProductRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseChecklistAnswerRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseStakeholderRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseMilestoneRepository.cs" />
+    <Compile Include="Repositories\Memory\MilestoneRepository.cs" />
+    <Compile Include="Repositories\Memory\CPRepository.cs" />
+    <Compile Include="Repositories\Memory\GenericRepository.cs" />
+    <Compile Include="Repositories\Memory\ReleaseRepository.cs" />
+    <Compile Include="Repositories\Memory\TableRepository.cs" />
+    <Compile Include="Repositories\Memory\WeeklyReportsRepository.cs" />
+    <Compile Include="Repositories\PREPContext.cs" />
+    <Compile Include="Repositories\Memory\RiskLevelRepository.cs" />
+    <Compile Include="TableViews\OrderTableView.cs" />
+    <Compile Include="TableViews\QuestionAreaView.cs" />
+    <Compile Include="TableViews\QuestionClasifications.cs" />
+    <Compile Include="TableViews\ReleaseChecklistAnswerView.cs" />
+    <Compile Include="TableViews\ReleaseCPView.cs" />
+    <Compile Include="TableViews\ReleasesView.cs" />
+    <Compile Include="TableViews\ReleseNameView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+    <Content Include="Resources\EntityFramework.dll" />
+    <Content Include="Resources\EntityFramework.SqlServer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601130951330_initial.resx">
+      <DependentUpon>201601130951330_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601131011512_updateQuestions.resx">
+      <DependentUpon>201601131011512_updateQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601131023188_updateadminvalue.resx">
+      <DependentUpon>201601131023188_updateadminvalue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601131331558_updateQuestionStakeholder.resx">
+      <DependentUpon>201601131331558_updateQuestionStakeholder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601131338463_updateQuestionStakeholder2.resx">
+      <DependentUpon>201601131338463_updateQuestionStakeholder2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601131339410_updateQuestionStakeholder3.resx">
+      <DependentUpon>201601131339410_updateQuestionStakeholder3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601141457317_addParamerType.resx">
+      <DependentUpon>201601141457317_addParamerType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601141511269_addParamerType2.resx">
+      <DependentUpon>201601141511269_addParamerType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601141530131_deleteQuestionSubArea.resx">
+      <DependentUpon>201601141530131_deleteQuestionSubArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601141532325_addQuestionArea.resx">
+      <DependentUpon>201601141532325_addQuestionArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601170830076_addreleaseactivitylog.resx">
+      <DependentUpon>201601170830076_addreleaseactivitylog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601201104546_createLink.resx">
+      <DependentUpon>201601201104546_createLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601240812286_questions.resx">
+      <DependentUpon>201601240812286_questions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601240819587_questionemloyee.resx">
+      <DependentUpon>201601240819587_questionemloyee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601240956399_EmployeeFullName.resx">
+      <DependentUpon>201601240956399_EmployeeFullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601251018204_updatequestionorder.resx">
+      <DependentUpon>201601251018204_updatequestionorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601251142010_addOrdertoSubArea.resx">
+      <DependentUpon>201601251142010_addOrdertoSubArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601251223230_addorder.resx">
+      <DependentUpon>201601251223230_addorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601251226089_createArcive.resx">
+      <DependentUpon>201601251226089_createArcive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601251304187_updateordercolumn.resx">
+      <DependentUpon>201601251304187_updateordercolumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601251349513_createArciveTable.resx">
+      <DependentUpon>201601251349513_createArciveTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601251358243_updateArcive1.resx">
+      <DependentUpon>201601251358243_updateArcive1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601260927331_updatechecklistanswer.resx">
+      <DependentUpon>201601260927331_updatechecklistanswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601260938376_updaterisklevel.resx">
+      <DependentUpon>201601260938376_updaterisklevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601260953112_addEmployeeToAccount.resx">
+      <DependentUpon>201601260953112_addEmployeeToAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601261057430_addSubAreaToReleaseChecklistAnswer.resx">
+      <DependentUpon>201601261057430_addSubAreaToReleaseChecklistAnswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601261118133_updateResponsibility.resx">
+      <DependentUpon>201601261118133_updateResponsibility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601261123008_MilestoneIDnotNullinQuestion.resx">
+      <DependentUpon>201601261123008_MilestoneIDnotNullinQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601261325310_updatePublicationSentByID.resx">
+      <DependentUpon>201601261325310_updatePublicationSentByID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601261405483_addMDMCode.resx">
+      <DependentUpon>201601261405483_addMDMCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601271426341_JoinPublicationAndReleaseCPTables.resx">
+      <DependentUpon>201601271426341_JoinPublicationAndReleaseCPTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601280840481_AddEmployeeSendByID.resx">
+      <DependentUpon>201601280840481_AddEmployeeSendByID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601311325437_addSubAreaScore.resx">
+      <DependentUpon>201601311325437_addSubAreaScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601311337335_deleteAreaScore.resx">
+      <DependentUpon>201601311337335_deleteAreaScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601311350181_addAreaScore.resx">
+      <DependentUpon>201601311350181_addAreaScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601311614551_updateSubAreaScore.resx">
+      <DependentUpon>201601311614551_updateSubAreaScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602010830589_deleteSubAreaScore.resx">
+      <DependentUpon>201602010830589_deleteSubAreaScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602010843413_deleteAreaScore1.resx">
+      <DependentUpon>201602010843413_deleteAreaScore1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602010845458_addAreaScore1.resx">
+      <DependentUpon>201602010845458_addAreaScore1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602010850132_addSubAreaScore1.resx">
+      <DependentUpon>201602010850132_addSubAreaScore1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602021214472_updateAreaScore.resx">
+      <DependentUpon>201602021214472_updateAreaScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602021314390_updateAreaScoreRelationship.resx">
+      <DependentUpon>201602021314390_updateAreaScoreRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602021412332_updateAreaScoreRelationship1.resx">
+      <DependentUpon>201602021412332_updateAreaScoreRelationship1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602031345290_updateActualComplationinReleaseChecklistAnswerArcive.resx">
+      <DependentUpon>201602031345290_updateActualComplationinReleaseChecklistAnswerArcive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602091012526_updateLastAutomaticUpdateDate.resx">
+      <DependentUpon>201602091012526_updateLastAutomaticUpdateDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602110832437_AccountName.resx">
+      <DependentUpon>201602110832437_AccountName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602141045139_addareaIdtoCheckList.resx">
+      <DependentUpon>201602141045139_addareaIdtoCheckList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602141052572_updatenullableinchecklist.resx">
+      <DependentUpon>201602141052572_updatenullableinchecklist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602141100530_commentToQuestions.resx">
+      <DependentUpon>201602141100530_commentToQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602151216272_productComments.resx">
+      <DependentUpon>201602151216272_productComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602151232134_deleteproductquestion.resx">
+      <DependentUpon>201602151232134_deleteproductquestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602151234461_createQuestionProduct.resx">
+      <DependentUpon>201602151234461_createQuestionProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602160903503_addColumnIsDeletedToQuestion.resx">
+      <DependentUpon>201602160903503_addColumnIsDeletedToQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602210746030_setDefaultValActualComplition.resx">
+      <DependentUpon>201602210746030_setDefaultValActualComplition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602211612266_changeIsVisibleToIsDeleted.resx">
+      <DependentUpon>201602211612266_changeIsVisibleToIsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602221401086_addIsDeletedToCpQuestionSubArea.resx">
+      <DependentUpon>201602221401086_addIsDeletedToCpQuestionSubArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603060950508_addParameterRelathionID.resx">
+      <DependentUpon>201603060950508_addParameterRelathionID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603141358364_oops.resx">
+      <DependentUpon>201603141358364_oops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603141401475_www.resx">
+      <DependentUpon>201603141401475_www.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603201210152_chracteristic_order_change.resx">
+      <DependentUpon>201603201210152_chracteristic_order_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\.resx">
+      <DependentUpon>.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603291341058_ScoresTempTables1.resx">
+      <DependentUpon>201603291341058_ScoresTempTables1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603291503284_change_subAreaScore_FK.resx">
+      <DependentUpon>201603291503284_change_subAreaScore_FK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603310804332_DeleteTempScores.resx">
+      <DependentUpon>201603310804332_DeleteTempScores.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ComplexTypeModels\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

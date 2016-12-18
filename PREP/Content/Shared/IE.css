@@ -1,0 +1,22 @@
+﻿#sdr6{
+      margin-left: 269px !important;
+}
+
+#sdr7 {
+    margin-left: 442px !important;
+}
+.xxx {
+}
+@media screen and (max-width: 1370px) {
+    .checklist-icon-title {
+        font-size: 11px !important;
+    }
+
+    #sdr6 {
+        margin-left: 25% !important;
+    }
+
+    #sdr7 {
+        margin-left: 42.5% !important;
+    }
+}

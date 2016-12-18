@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PREP.Models.ReleaseMilestoneVM>
+
+<h2 class="header-title">Release Milestones</h2>
+<div>
+    <div class="detailsContent">
+
+        <div class="form-group ">
+            <div class="item-lable">
+                @*Html.DisplayNameFor(model => model.ReleaseID)*@
+            </div>
+            <div class="form-inline">
+                <span class="header">@Html.DisplayNameFor(model => model.MilestoneDate)</span>
+            </div>
+        </div>
+        <hr />
+        @foreach (var item in Model)
+            {
+            <div class="form-group">
+                <div class="item-lable" title="@item.ToolTip">
+                    @Html.DisplayFor(modelItem => item.MilestoneName):
+                </div>
+                <div class="form-inline">
+                    @Html.DisplayFor(modelItem => item.MilestoneDate)
+                </div>
+            </div>
+            <hr />
+        }
+
+    </div>
+</div>

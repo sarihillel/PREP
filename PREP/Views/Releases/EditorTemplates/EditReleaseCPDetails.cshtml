@@ -1,0 +1,123 @@
+﻿@model PREP.DAL.TableViews.ReleaseCPView
+@*<script src="~/Scripts/ReleaseDetails.js"></script>*@
+<script>
+    $(document).ready(function () {
+        $(".exit-popup-btn").click(exitPopUpWindow);
+        // $("#cp-details-Edit").click(function () { ChangeContentPopUpWindow("/Releases/EditReleaseCPDetails", { releaseCP: $("#milstone-strip-wrapper").data("selectedmilstone") }); ; })
+        // cp - details - cancel
+        $("#cp-details-cancel").click(exitPopUpWindow);
+        $("#cp-details-save").click(cpDetailsSave);
+        setDatePicker();
+    });
+</script>
+
+<input type="button" class="exit-popup-btn x-btn" value="X" />
+<h2 class="header-title">
+    CP Details
+</h2>
+<div class="detailsContent detailsContentPopUp editPopUp">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    @Html.HiddenFor(model => model.ReleaseCPID)
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CPName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CPName, new { htmlAttributes = new { @class = "editItemreadonly", @readonly = "readonly" } })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.ReleaseID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ReleaseID, new { htmlAttributes = new { @class = "editItemreadonly", @readonly = "readonly" } })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.ReleaseName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ReleaseName, new { htmlAttributes = new { @class = "editItemreadonly", @readonly = "readonly" } })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.AccountName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AccountName, new { htmlAttributes = new { @class = "editItemreadonly", @readonly = "readonly" } })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.PlannedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.PlannedDate, "{0:dd-MMM-yyyy}", new { @class = "editItemreadonly", @readonly = "readonly" })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.PublicationMailDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PublicationMailDate, new { htmlAttributes = new { @class = "editItemreadonly", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.PublicationMailDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.PublicationMailLink, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PublicationMailLink, new { htmlAttributes = new { @class = "editItemreadonly", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.PublicationMailLink, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExceptionIndicator, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.ExceptionIndicator)
+                @Html.ValidationMessageFor(model => model.ExceptionIndicator, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="form-group form_datetime">
+        @Html.LabelFor(model => model.ExceptionDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ExceptionDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ExceptionDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExceptionRemarks, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.ExceptionRemarks, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ExceptionRemarks, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.DelayDays, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DelayDays, new { htmlAttributes = new { @class = "editItemreadonly", @readonly = "readonly" } })
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <hr />
+</div>
+<div class="tabs-action-button">
+    <input type="button" value="Save" class="footer-button" id="cp-details-save" />
+    <input type="button" value="Cancel" class="footer-button" id="cp-details-cancel" />
+</div>
+

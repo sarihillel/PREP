@@ -1,0 +1,15 @@
+﻿@model PREP.Models.StatusVM
+
+@*@using (Html.BeginForm("_HighLightText", "Status", FormMethod.Post))
+{*@
+    @*@Html.AntiForgeryToken()*@
+    <div class="col-lg-12 col-md-12 col-xs-12">
+        <h3 class="_h3 _highlights">Readiness Highlights & Summary:</h3>
+        <div class="col-lg-12 col-md-12 col-xs-12 _higlights_div" >
+            @Html.HiddenFor(model=>model.StatusText.ReleaseID)
+            @Html.TextAreaFor(model => model.StatusText.HighLightText, new { @class = "col-lg-12 col-md-12 col-xs-12", @placeholder = "Add Free text for Readiness Highlights", @style = "max-width: initial;" })
+            @*<textarea class="col-lg-12 col-md-12 col-xs-12" placeholder="Add Free text for Readiness Highlights"> </textarea>*@
+        </div>
+    </div>
+@*}*@
+

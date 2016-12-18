@@ -1,0 +1,28 @@
+﻿@model PREP.Models.ReleaseGeneralDetails
+@{ 
+    bool IsEdited = Request.Path.ToUpper().Contains("EDIT");
+    bool IsAdded = Request.Path.ToUpper().Contains("ADD");
+}
+    <div class="header">
+        <p class="header-accountName AccountName">
+            @Model.AccountName
+    </p> <p class="header-accountName">|</p> 
+          <p class="header-releaseName ReleaseName"> @Model.Name </p> <p class="header-reviewMode">PREP Review Mode:</p>
+     @*@if (@Model.IsFullTrack == true) {*@ 
+         <p class="header-reviewMode">Full</p >
+     @*}else{*@ 
+        @*<p class="header-reviewMode">empty</p>*@
+        @*}*@
+
+
+       
+        <div class="header-button-section" style=@(IsAdded==true?"display:none":"")>
+            <input type="button" value="Edit Release" class="header-button " id="header-btn-mode" style=@(IsEdited == true ? "display:none" : "") />
+            <input id="VieCLBtn" type="button" value="View Checklist" class="header-button @(ViewBag.IsExistCheckList == false ? "disabled-header-btn" : "")" @( !ViewBag.IsExistCheckList ? "disabled" : "" ) />
+            <input id="InitiateBtn" type="button" value="Initiate Checklist" class="header-button" style=@(IsEdited == false ? "display:none" : "") />
+            @*<input type="button" value="take ownership" class="header-button" />*@
+        </div>
+    </div>
+
+
+@*@(Model. != null ? "disable-header-button" : "")"*@

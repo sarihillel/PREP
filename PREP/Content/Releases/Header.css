@@ -1,0 +1,135 @@
+﻿.disabled-header-btn {
+    border-width: 1px !important;
+    border-color: #c2c2c2 !important;
+    border-style: solid !important;
+    background-color: #e2e2e2 !important;
+    font-family: OpenSans !important;
+color:  #a8a9ab !important;
+font-size: 14px !important;/* Approximation due to font substitution */
+font-weight: 400 !important;
+text-align: center !important;
+}
+
+.header-accountName {
+    padding: 5px;
+    display: inline;
+    font-family: OpenSans;
+    color: #ffffff;
+    font-size: 20px; /* Approximation due to font substitution */
+    font-weight: 300;
+    text-align: left;
+    /*transform: matrix(1.1041,-0.002,0.0022,1,0,0); /* width and height properties ommitted due to transform */ */;
+}
+
+.header-releaseName {
+    margin: 10px\9;
+    display: inline;
+    font-family: OpenSans;
+    color: #ffffff;
+    font-size: 20px; /* Approximation due to font substitution */
+    /*font-weight: 600;*/
+    text-align: left;
+    /*transform: matrix(1.1041,-0.002,0.0022,1,0,0); /* width and height properties ommitted due to transform */ */;
+}
+
+.header-reviewMode {
+    display: inline;
+    font-family: OpenSans;
+    color: #ffffff;
+    font-size: 14px; /* Approximation due to font substitution */
+    font-style: italic;
+    text-align: left;
+}
+
+.header-button {
+    height: 36px;
+    width: 146px;
+    display: inline;
+    font-family: OpenSans;
+    color: #ffffff;
+    font-size: 14px; /* Approximation due to font substitution */
+    font-weight: 400;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 8px;
+    /*margin-left: 2px;*/
+    bottom: 7px;
+    position: relative;
+}
+
+.g {
+}
+
+.header-button-section {
+    float: right;
+    display: inline;
+}
+
+.header {
+    padding-top: 10px;
+    padding-bottom: 7px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1322px;
+}
+
+
+.form-group.family {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.family-item {
+    /*font-family: OpenSans;*/
+    color: #4b4e53;
+    font-size: 14px; /* Approximation due to font substitution */
+    font-weight: 700;
+    line-height: 24px; /* Approximation due to font substitution */
+    text-align: left;
+}
+
+.product-item {
+    /*font-family: OpenSans;*/
+    color: #4b4e53;
+    font-size: 14px; /* Approximation due to font substitution */
+    font-weight: 400;
+    line-height: 37px; /* Approximation due to font substitution */
+    text-align: left;
+    margin-left: 26px;
+}
+
+    .product-item.hide-cb {
+        display: none;
+    }
+
+    .family-item input, .product-item input {
+        margin-right: 7px;
+    }
+
+.custom-product > .custom-cb {
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.add-custom-product {
+    font-family: OpenSans;
+    color: #009ad9;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+}
+
+.checkpoint-link {
+    cursor: pointer;
+}
+
+.dots-image {
+    vertical-align: middle;
+    position: absolute;
+    top: 8px;
+    padding-left: 7px;
+}

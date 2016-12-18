@@ -1,0 +1,39 @@
+﻿@model PREP.Models.ReleaseAreaOwners
+
+<div class="form-group">
+    @Html.HiddenFor(model => model.AreaID)
+    <div class="col-md-2 padding-r-0">
+        @Html.CheckBoxFor(model => model.IsChecked, new { @class= "area-cb" })
+        <span class="ellipsis-div " title="@Model.ToolTip">
+            @Html.DisplayFor(model => model.AreaName)
+        </span>
+    </div>
+    <div class="area-div col-lg-10" style="display:@(this.Model.IsChecked ? "block" : "none");">
+        <div class="area-input">
+            @Html.DropDownListFor(model => model.Resposibility, new List<SelectListItem>{
+                                                                        new SelectListItem{ Text = "Amdocs", Value = "Amdocs" },
+                                                                        new SelectListItem{ Text = "Customer", Value = "Customer" }
+                                                                     }, new { @class = "form-control" })
+        </div>
+        <div class="area-input" >
+            <div>
+                @Html.HiddenFor(model => model.AmdocsFocalPoint1ID, new {  @class = @Html.NameFor(m => m.AmdocsFocalPoint1ID) + "_hdnId" })
+                @Html.EditorFor(model => model.AmdocsFocalPoint1Name, new { htmlAttributes = new { @class = "form-control amdocs-emp " + @Html.NameFor(m => m.AmdocsFocalPoint1ID) + "_txtBox elips", @disabled = "disabled",@style= "padding-right: 28%;" } })
+                <div class="user-icon sprite icon-39" id="@Html.NameFor(m => m.AmdocsFocalPoint1ID)" ></div>
+                <div class="deleteIconAFP"><img style="width: 15px;" src="~/Content/Images/deleteIcon.png" /></div>
+            </div>
+            <div>
+                @Html.HiddenFor(model => model.AmdocsFocalPoint2ID, new { @class = @Html.NameFor(m => m.AmdocsFocalPoint2ID) + "_hdnId" })
+                @Html.EditorFor(model => model.AmdocsFocalPoint2Name, new { htmlAttributes = new { @class = "form-control amdocs-emp " + @Html.NameFor(m => m.AmdocsFocalPoint2ID) + "_txtBox elips", @disabled = "disabled", @style = "padding-right: 28%;" } })
+                <div class="user-icon sprite icon-39"  id="@Html.NameFor(m => m.AmdocsFocalPoint2ID)"></div>
+                <div class="deleteIconAFP" ><img style="width: 15px;" src="~/Content/Images/deleteIcon.png" /></div>
+            </div>
+        </div>
+        <div class="area-input">
+            @Html.EditorFor(model => model.CustomerFocalPoint1, new { htmlAttributes = new { @class = "form-control customer-emp" } })
+            @Html.EditorFor(model => model.CustomerFocalPoint2, new { htmlAttributes = new { @class = "form-control customer-emp" } })
+        </div>
+    </div>
+</div>
+<hr />
+

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PREP.Models.ReleaseAreaOwners>
+
+<div class="form-horizontal">
+    <h2 class="header-title">Area Owners</h2>
+    <div class="detailsContent">
+        <div class=" form-group ">
+            <div class="col-md-2"></div>
+            <div class="area-div col-lg-10" style="display:block">
+                <div class="area-header col-md-3">
+                    <span class="header">Responsibility</span>
+                </div>
+                <div class="area-header col-md-3">
+                    <span class="header">Amdocs' focal-point</span>
+                </div>
+                <div class="area-header col-md-3">
+                    <span class="header">Customers' focal-point</span>
+                </div>
+            </div>
+        </div>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            @Html.EditorFor(m => Model.ToList()[i])
+        }
+    </div>
+</div>
+
+

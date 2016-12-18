@@ -1,0 +1,13 @@
+﻿@model PREP.Models.ReleaseMilestoneVM
+<div class="form-group date">
+    @Html.HiddenFor(model => model.ReleaseID)
+    @Html.HiddenFor(model => model.MilestoneID)
+    <div class="item-lable  input-group" title="@Model.ToolTip">
+        @Html.DisplayFor(model => model.MilestoneName):
+    </div>
+    <div class="col-md-6">
+        @Html.EditorFor(model => model.MilestoneDate)
+        @Html.ValidationMessageFor(model => model.MilestoneDate, "", new { @class = "text-danger" })
+    </div>
+</div>
+<hr />

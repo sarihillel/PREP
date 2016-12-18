@@ -1,0 +1,8 @@
+﻿@model DateTime?
+
+<div class='form_datetime form-group date form-inline' data-date="@{Html.Raw((Model.HasValue ? Model.Value.ToString("{0:dd-MMM-yyyy}") : string.Empty));}">
+   @Html.TextBoxFor(m => m, "{0:dd-MMM-yyyy}", new { @class = "form-control datetimepickerinput" })
+    <i class="glyphicon glyphicon-calendar datetimepickercalendar" id="i@{@Html.NameFor(m => m)}" ></i>
+</div>
+
+

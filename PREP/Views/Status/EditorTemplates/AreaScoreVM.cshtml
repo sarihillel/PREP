@@ -1,0 +1,21 @@
+﻿@model PREP.Models.AreaScoreVM
+
+    <div class="_box_shadow big-height">
+        @Html.HiddenFor(model=>model.Score)
+        @*<h4 class="_h4">
+                @Html.DisplayFor(model => model.Name)
+                <div class="sprite-status-big @(Model.Trand)-big pull-right header_icon" style="margin-right: 5px;margin-top: 6px;"></div>
+                <div class="sprite-status-big @(Model.ScoreStatus)-big pull-right header_icon" style="margin-right: 7px;margin-top: 6px;"></div>
+            </h4>*@
+        <h4 class="_h4">
+            <div class="left header-center">@Html.DisplayFor(model => model.Name)</div>
+            <div class="sprite-status-big @(Model.ScoreStatus)-big left" style="margin-right:5px;margin-left:8px"></div>
+            <div class="sprite-status-big @(Model.Trand)-big left"></div>
+        </h4>
+        <ul>
+            @Html.EditorFor(model => model.SubAreaScors)
+        </ul>
+    </div>
+
+
+

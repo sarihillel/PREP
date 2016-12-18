@@ -1,0 +1,34 @@
+﻿@model PREP.Models.ReleaseStakeholderVM
+@*<hr class="mewHr" />*@
+@Html.EditorFor(m => m.ReleaseStakeholderID, new { htmlAttributes = new { @class = "edit-contol edit-people", @hidden = "hidden" } })
+@Html.ValidationMessageFor(m => m.ReleaseStakeholderID, "", new { @class = "text-danger", @hidden = "hidden" })
+@Html.EditorFor(m => m.StakeholderID, new { htmlAttributes = new {  @hidden = "hidden" } })
+<div class="form-group firstemp">
+    <div class="item-lable newlabel" title="@Model.ToolTip">@Html.DisplayFor(modelItem => modelItem.StakeholderName):</div>
+    <div class="form-inline newInline" @*style="display:inline-block"*@>
+        @Html.EditorFor(m => m.FullNameEmployee1, new { htmlAttributes = new { @class = "edit-contol edit-people "+ @Html.NameFor(m => m.Employee1)+"_txtBox"  , @disabled = "disabled" } })
+        @Html.ValidationMessageFor(m => m.FullNameEmployee1, "", new { @class = "text-danger" })
+        @Html.EditorFor(m => m.EmployeeID1, new { htmlAttributes = new { @class = "edit-contol hidden-employeeId edit-people " + @Html.NameFor(m=>m.IsDeleteUser) +" "+ @Html.NameFor(m=>m.Employee1)+"_hdnId", @hidden = "hidden" } })
+        @Html.ValidationMessageFor(m => m.EmployeeID1, "", new { @class = "text-danger", @hidden = "hidden" })
+            <div class="userIcon sprite icon-39" style="right: 46px;" id="@Html.NameFor(m=>m.Employee1)"></div>
+            <div class="deleteIcon" id='@Html.NameFor(m=>m.IsDeleteUser)' >
+                <img style="width: 15px;" src="~/Content/Images/deleteIcon.png" /></div>
+        @*<div class="floatLeft glyphicon glyphicon-remove deleteIcon" id='@Html.NameFor(m=>m.IsDeleteUser)' onclick="setConfirm(this.parentNode, deleteEmp)"></div>*@
+    </div>
+</div>
+<div class="form-group">
+    <div class="item-lable"> </div>
+    <div class="form-inline">
+        <div style="display:inline-block;float:left" class="@Html.NameFor(m=>m.IsAddUser)">
+            @Html.EditorFor(m => m.FullNameEmployee2, new { htmlAttributes = new { @class = "edit-contol floatLeft "+ @Html.NameFor(m=>m.Employee2)+"_txtBox" , @disabled = "disabled" } })
+            @Html.ValidationMessageFor(m => m.FullNameEmployee2, "", new { @class = "text-danger" })
+            @Html.EditorFor(m => m.EmployeeID2, new { htmlAttributes = new { @class = "edit-contol hidden-employeeId edit-people " + @Html.NameFor(m=>m.Employee2)+"_hdnId", @hidden = "hidden" } })
+            @Html.ValidationMessageFor(m => m.EmployeeID2, "", new { @class = "text-danger", @hidden = "hidden" })
+            <div class="userIcon sprite icon-39" id="@Html.NameFor(m=>m.Employee2)" ></div>
+            <div class="floatLeft sprite icon-66 minusIcon" ></div>
+        </div>
+        <input type="button" class="_addUser btn-link aStyle"   id="@Html.NameFor(m=>m.IsAddUser)" value="Add user +" />
+    </div>
+</div>
+<hr class="mewHr" />
+

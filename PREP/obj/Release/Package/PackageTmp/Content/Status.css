@@ -1,0 +1,170 @@
+﻿
+
+.area-notes {
+    width: 100% !important;
+    border: none !important;
+    height: 94px;
+    resize: none;
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 16px;
+}
+
+textarea {
+    outline: none;
+}
+/*#milstone-strip-wrapper {
+        width: 90%;
+    }*/
+
+
+/*.popUp {
+    background-color: #e2e2e2;
+    width: 31%;
+    height: 0;
+    position: fixed;
+    z-index: 11;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    min-height: 150px;
+    border-color: #ccc;
+    top: 22%;
+    left: 38%;
+    font-family: Arial;
+}*/
+
+.dropdown-cp {
+    float: right;
+    width: 42%;
+}
+
+#PublishPopUp > .exit-popup-btn {
+    border: none;
+}
+
+#PublishPopUp > hr {
+    margin-right: 0 !important;
+    margin-top: 37px !important;
+    margin-bottom: 7px !important;
+}
+
+#btn-prepare-mail {
+    float: right;
+}
+
+#checkpoint-icon-wrapper {
+    width: 18%;
+}
+
+#milstone-strip-wrapper {
+    width: 80%;
+}
+
+    #milstone-strip-wrapper p {
+        width: 165px;
+    }
+
+.left {
+    float: left;
+}
+
+.header-center {
+    width: 50%;
+    text-align: right;
+    margin-top: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*.elipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}*/
+
+@media screen and (max-width : 1311px) {
+    .area-notes {
+        margin-left: 0px;
+    }
+
+    .row {
+        margin-right: -19px;
+    }
+}
+/*@media screen and (max-width : 1185px) {
+    .elipsis {
+        width: 85% !important;
+}
+}*/
+.popUp > #MailForm {
+    overflow: scroll;
+}
+
+
+#MailForm > img {
+    zoom: 0.75;
+}
+
+.mail-group {
+    margin-bottom: 5px;
+}
+
+.mail-control {
+    max-width: 1153px;
+    height: 25px;
+}
+
+.mail-textarea {
+    width: 100%;
+    max-width: 1441px;
+    margin: 10px 0 10px 0;
+}
+
+#SendBtn {
+    width: 62px;
+    height: 81px;
+}
+
+
+.popup-publish {
+    height: 150px;
+    width: 40%;
+    left: 30%;
+}
+
+.dots {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 0px !important;
+}
+
+.SendDiv {
+    width: 92px;
+    display: inline-block;
+}
+
+.mail-group-container {
+    left: 110px;
+    position: absolute;
+    right: 100px;
+    display: inline-block;
+}
+
+label.mail-label {
+    width: 52px;
+}
+
+.mail-text-box {
+    display: inline-block;
+    left: 67px;
+    position: absolute;
+    right: 0px;
+}
+
+.exit-popup-div {
+    float: right;
+    right: 35px;
+    width: 70px;
+}

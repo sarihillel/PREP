@@ -1,0 +1,38 @@
+﻿
+.sprite-status-big {
+    width: 24px;
+    height: 20px;
+    text-decoration: none;
+    background-image: url('../Content/Images/CheckList/sprite_ status_big_img.png');
+    /*zoom:1.19;*/
+}
+
+/* image start from right */
+.sprite-status-small {
+    width: 19px;
+    height: 16px;
+    text-decoration: none;
+    background-image: url('../Content/Images/CheckList/sprite_ status_small_img.png');
+    /*zoom:1.19;*/
+}
+
+.up-big { background-position: 0 0;}
+.blank-big { background-position: -24px 0;}
+.like-big { background-position: -48px 0;}
+.none-big { background-position: -72px 0;}
+.flag-big { background-position: -96px 0;}
+.down-big { background-position: -120px 0;}
+.nochange-big { background-position: -144px 0;}
+.stop-big { background-position: -168px 0;}
+
+
+.up-small { background-position: 0 0;}
+.blank-small { background-position: -19px 0;}
+.like-small { background-position: -38px 0;}
+.none-small { background-position: -57px 0;}
+.flag-small { background-position: -76px 0;}
+.down-small { background-position: -95px 0;}
+.nochange-small { background-position: -114px 0;}
+.stop-small { background-position: -133px 0;}
+
+

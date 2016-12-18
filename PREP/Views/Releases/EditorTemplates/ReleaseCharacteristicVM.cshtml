@@ -1,0 +1,18 @@
+﻿@model IEnumerable<PREP.Models.ReleaseCharacteristicVM>
+<div class="form-horizontal">
+    <h2 class="header-title">Release Characteristics</h2>
+    <div class="detailsContent">
+        @foreach (var item in Model)
+        {
+            <div>
+                @Html.DisplayFor(x => item.IsChecked, new { @class = "aaa", @disabled = "disabled" })
+                @Html.HiddenFor(x => item.CharacteristicID)
+                <span title="@(item.ToolTip)">
+                    @Html.DisplayFor(z => item.CharacteristicName)
+                </span>
+                <hr />
+            </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<PREP.Models.ReleaseStakeholderVM>
+<div class="col-lg-12 col-md-12 col-xs-12 _stakeholder">
+    <h3 class="_h3 stakeholder">Stakeholders:</h3>
+        @{int count = 2;}
+        @foreach (var item in Model)
+        {
+            <div>
+                @if (count % 2 == 0)
+                {
+                    <b>@item.StakeholderName:</b> @item.FullNameEmployee1<br>
+                }
+                else
+                {
+                    <b>@item.StakeholderName:</b> @item.FullNameEmployee1
+                }
+            </div>
+            count++;
+        }
+</div>

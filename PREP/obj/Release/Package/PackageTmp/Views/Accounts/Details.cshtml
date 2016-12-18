@@ -1,0 +1,67 @@
+﻿@model PREP.DAL.Models.Account
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Account</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PrepFPName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PrepFPName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PrepFPEmpID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PrepFPEmpID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsDeleted)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.AccountID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+   
+</body>
+</html>

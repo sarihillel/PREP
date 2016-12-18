@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace PREP.Models
+{
+    public class ReleaseProducts
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string ToolTip { get; set; }
+        public int? ReleaseProductID { get; set; }
+        public int FamilyProductID { get; set; }
+        public bool IsChecked { get; set; }
+    }
+}

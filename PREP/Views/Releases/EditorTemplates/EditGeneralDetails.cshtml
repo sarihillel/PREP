@@ -1,0 +1,122 @@
+﻿@model PREP.Models.ReleaseGeneralDetails
+
+<div class="form-horizontal">
+    <h2 class="header-title">General Details</h2>
+    <div class="detailsContent">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.ReleaseID, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReleaseID, new { htmlAttributes = new { @class = "editItemreadonly releseId", @readonly = "readonly" } })
+                @*@Html.ValidationMessageFor(model => model.ReleaseID, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.AccountName, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @using (Html.BeginForm())
+                {
+                    <div for="AccountDDL" class="editItem styleSelect">
+                        @Html.DropDownListFor(model => model.AccountID, new SelectList(Model.Accounts, "AccountID", "Name"), new { @class = "form-control", @id = "AccountDDL" })
+                        <span class="sprite icon-8 DDLarrow" />
+                    </div>
+                        @*@Html.ValidationMessageFor(model => model.AccountName, "", new { @class = "text-danger" })*@
+                }
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control editItem" } })
+                @*@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control editItem" } })
+                @*@Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.LOB, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LOB, new { htmlAttributes = new { @class = "form-control editItem" } })
+                @*@Html.ValidationMessageFor(model => model.LOB, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.LastCP, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastCP, new { htmlAttributes = new { @class = "editItemreadonly  padding-left-30", @readonly = "readonly " } })
+                @*@Html.ValidationMessageFor(model => model.LastCP, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.LastCPDate, htmlAttributes: new { @class = "control-label col-md-2 " })
+            </div>
+            <div class="col-md-10 editItemreadonly">
+                @Html.DisplayFor(model => model.LastCPDate, new { htmlAttributes = new { @class = "padding-left-30"} })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10 editItemreadonly">
+                @Html.DisplayFor(model => model.CreatedDate)
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "editItemreadonly padding-left-30", @readonly = "readonly" } })
+                @*@Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.ModifiedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10 editItemreadonly"  id="ModifiedDate" >
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="item-lable">
+                @Html.LabelFor(model => model.ModifiedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ModifiedBy, new { htmlAttributes = new { @class = "editItemreadonly padding-left-30", @readonly = "readonly" } })
+                @*@Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+    </div>
+</div>
+

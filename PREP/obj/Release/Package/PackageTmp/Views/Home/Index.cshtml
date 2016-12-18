@@ -1,0 +1,44 @@
+﻿<html id="Background-img-Home">
+<head>
+    <link href="~/Content/Home.css" rel="stylesheet" />
+    @Styles.Render("~/Content/Home.css")
+    @Scripts.Render("~/Scripts/Home/Index.js")
+</head>
+<body>
+
+    <div id="search-wrapper">
+        <div class="row" id="search-lbl-wrapper">
+            <label id="search-lbl-vertical">Search Your Release</label>
+        </div>
+
+        <div class="container" id="gray-square">
+            <input type="text" class="element" id="white-square" name="white-square">
+            <a class="element" id="black-square" onclick="goToReleases($('#white-square').val())">
+                <i class="iconStyle sprite icon-29 "></i>
+            </a>
+
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        $('#white-square')
+            .autocomplete({
+                source: '@Url.Action("Autocomplete")',
+            })
+           .keypress(function (e) {
+               if (e.keyCode == 13) {
+                   e.preventDefault();
+                   goToReleases(this.value);
+                   $(this).autocomplete('close');
+               }
+           });
+        $('.ui-corner-all').addClass('a-corner-all');
+    })
+
+    function goToReleases(text) {
+        window.location.href = "/Releases/Index/?textSearch=" + text;
+    }
+
+</script>

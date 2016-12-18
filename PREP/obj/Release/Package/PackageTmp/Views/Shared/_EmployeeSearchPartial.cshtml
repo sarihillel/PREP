@@ -1,0 +1,44 @@
+﻿<div id="MsgAlertdialog" style="display:none">
+    <div id="dialogboxheadEmpSearchAlert">
+        <img src="/Content/Images/Information.jpg"><span>Information</span>
+    </div>
+    <div id="dialogboxbodyEmpSearchAlert"></div>
+    <div id="dialogboxfootEmpSearchAlert">
+        <button id="okBtnPopup" class="button">Ok</button>
+    </div>
+</div>
+
+<div>
+    <input type="hidden" id="hdnSelectedSearchEmployee" />
+
+
+    <div id="dialogEmployeeSearch" style="display:none">
+        <div id="empSearchParams">
+            <span class="display-field">ID:</span>
+            <input type="text" id="txtCodeID" maxlength="9" />
+            <span class="display-field">Name:</span>
+            <input type="text" id="txtempName" maxlength="30" />
+            <a href="#" id="BtnSearch" class="linkSearch">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+
+        <table id="gridEmployeeSearch">
+            <thead>
+                <tr>
+                    <th class="dTHeader br">Select</th>
+                    <th class="dTHeader br">ID</th>
+                    <th class="dTHeader br">First Name</th>
+                    <th class="dTHeader br">Last Name</th>
+                    <th class="dTHeader br">User Name</th>
+                </tr>
+            </thead>
+        </table>
+        @*<label style="color: Red;" id="lblempMsg"></label>*@
+    </div>
+</div>
+<script>
+   var urlpath = "@Url.Action("GetContentEmployee", "Base")";
+</script>
+
+<script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+<script src="~/Scripts/CommonEmployeeSearch.js"></script>

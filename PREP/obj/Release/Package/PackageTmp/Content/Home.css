@@ -1,0 +1,99 @@
+﻿#Background-img-Home {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: url('Images/BackgroundHome.png') no-repeat center center;
+    background-size: cover;
+}
+
+#Background-img-Home > body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: url('Images/ShadowBackgroundHome.png') no-repeat  !important;
+    background-size: cover;
+}
+#gray-square {
+    margin-top: -60px;
+    background-color: rgba(41, 49, 67, 0.55);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    width: 772px;
+    height: 144px;
+    display: block;
+    position: relative;
+}
+
+#white-square {
+    font-family: OpenSans;
+    max-width: 486px;
+    padding-left: 5px;
+    border-width: 1px;
+    border-color: #ffffff;
+    border-style: solid;
+    background-color: #ffffff;
+    opacity: 0.8;
+    width: 621px;
+    height: 40px;
+}
+
+.iconStyle {
+    background-color: #293143;
+    width: 45px;
+    height: 42px;
+    display: inline-block;
+    float: right;
+}
+
+#search-lbl-vertical {
+    font-family: OpenSans;
+    color: #293143;
+    font-size: 34px; /* Approximation due to font substitution */
+    font-weight: 400;
+    text-align: center;
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#search-lbl-wrapper {
+    text-align: center;
+}
+
+.container {
+    height: 300px;
+    text-align: center; /* align the inline(-block) elements horizontally */
+    font: 0/0 a; /* remove the gap between inline(-block) elements */
+}
+
+    .container:before { /* create a full-height inline block pseudo=element */
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle; /* vertical alignment of the inline element */
+        height: 100%;
+    }
+
+.element {
+    display: inline-block;
+    vertical-align: middle; /* vertical alignment of the inline element */
+    font: 16px/1 Arial sans-serif; /* <-- reset the font property */
+}
+
+#search-wrapper {
+    line-height: 205px;
+}
+
+.ui-autocomplete {
+    padding-left: 5px;
+    position: relative;
+    background-color: white;
+    width: 486px !important;
+    text-align: left;
+}
+/*.ui-corner-all{
+    position:absolute;
+    left:0;
+}*/
+
+.ui-corner-all a{
+    text-decoration:none !important;
+    color:black;
+  
+}

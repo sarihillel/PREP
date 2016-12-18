@@ -1,0 +1,91 @@
+﻿body {
+}
+
+.edit-contol {
+    padding-left: 20px;
+    border-width: 1px;
+    border-color: #c1c3c5;
+    border-style: solid;
+    background-color: #ffffff;
+    width: 250px;
+    height: 28px;
+}
+
+.aStyle {
+    font-family: OpenSans;
+    color: #009ad9;
+    font-size: 12px; /* Approximation due to font substitution */
+    font-weight: 400;
+    text-align: left;
+    padding: 0px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.userIcon {
+    position: relative;
+    right: 20.5%;
+    cursor: pointer;
+    float: right;
+    top: -3px;
+}
+
+.minusIcon {
+    cursor: pointer;
+}
+
+.deleteIcon {
+    cursor: pointer;
+    position: relative !important;
+    float: right;
+    margin-top: 6.5px;
+    right: 40px;
+}
+
+.edit {
+    position: absolute;
+    top: 24.5%;
+}
+
+.edit-people {
+    top: 24.5%;
+    float: left;
+}
+
+.next-emp {
+    display: inline-block;
+    float: left;
+}
+
+.firstemp {
+    margin-bottom: 0px !important;
+}
+
+.aStyle:focus {
+    outline: none;
+}
+
+.be-over {
+    z-index: 50;
+}
+.over-all{
+    z-index: 50;
+}
+
+.mewHr {
+    margin-top: 7px;
+}
+.special-hr{
+    margin-bottom: 8px;
+}
+
+.newInline {
+    height: 24px;
+    display: inline-block;
+}
+
+.newlabel {
+    margin-bottom: 10px;
+}

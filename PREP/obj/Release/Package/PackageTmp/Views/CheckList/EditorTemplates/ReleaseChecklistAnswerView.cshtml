@@ -1,0 +1,88 @@
+﻿@model PREP.DAL.TableViews.ReleaseChecklistAnswerView
+<tr class="_repeating_rows">
+    <td colspan="1" class="width-9"> <div class="col-lg-7 col-md-7 col-xs-7 col-xs-offset-5"> <?php echo $i;? > </div> </td>
+    <td colspan="1" class="_width_Qtxt"> <div class="_padding-0"> <p>@Html.DisplayFor(model => model.QuestionText)</p><div class="question_icons"><img class="info_little" src="/Content/CheckList/icons/info.png" width="14" height="14"></div></div></td>
+    <td colspan="1" class="_width_risk_level">
+        @Html.HiddenFor(model => model.ActualComplation, new { @id = "actualComplation" } )
+        <div class="btn-group">
+            <button type="button" class="actualComplationBtn btn btn-default _border-radius-0">10</button>
+            <button type="button" class="actualComplationBtn btn btn-default">20</button>
+            <button type="button" class="actualComplationBtn btn btn-default">30</button>
+            <button type="button" class="actualComplationBtn btn btn-default">40</button>
+            <button type="button" class="actualComplationBtn btn btn-default">50</button>
+            <button type="button" class="actualComplationBtn btn btn-default">60</button>
+            <button type="button" class="actualComplationBtn btn btn-default">70</button>
+            <button type="button" class="actualComplationBtn btn btn-default">80</button>
+            <button type="button" class="actualComplationBtn btn btn-default">90</button>
+            <button type="button" class="actualComplationBtn btn btn-default _border-radius-0">100</button>
+        </div>
+        @Html.EnumDropDownListFor(model => model.RiskLevelID, new { @class = "form-control _top_8 _red risk-level-ddl", @id = "sel1" })
+    </td>
+    <td colspan="1" class="width-35  _comment">
+        @Html.TextAreaFor(model => model.Comments, new { @class = "form-control width-100 pull-left", @rows = "2", @id = "comment" })
+        @*<textarea class="form-control width-100 pull-left" rows="2" id="comment">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>*@
+        <div class="_width_93 pull-left"> 
+        <a href="javascript:;" class="_font-10 pull-left _view_log view-log" data-placement="bottom" data-trigger="focus" 
+           data-toggle="popover" data-content="Click anywhere in the document to close this popover" data-releaseChecklistAnswer="@Model.ReleaseChecklistAnswerID">View Log >></a> 
+         <a href="javascript:;" class="_font-10 pull-right _view_log add-comment">Add Comment +</a> </div>
+    </td>
+</tr>
+<tr class="_font-10">
+    <td colspan="1"><div class="col-lg-10 col-md-10 col-xs-10 col-xs-offset-2 _border_bottom">&nbsp;</div></td>
+
+    <td colspan="3">
+        <div class="_border_bottom">
+            <div class="pull-left">
+                <span class="_more">
+                    <a href="javascript:;" class="hideShowRow" da-ta-placement="bottom" data-toggle="popover" da-ta-trigger="focus" data-cont-ent="Click anywhere in the document to close this popover">More +</a>&nbsp;&nbsp;
+                </span>
+            </div>
+            <span class="hide-row" style="display:none;">
+                <div class="width-14">
+                    <label for="area" class="pull-left _padding-10">Area:&nbsp;</label>
+                    @Html.DropDownListFor(model => model.AreaID, new SelectList(ViewBag.areas, "AreaID", "Name"), new { @class = "form -control _repeating_row_dropdowns", @id = "ddlArea" })
+                </div>
+                <div class="width-14">
+                    <label for="area" class="pull-left  _padding-10">Sub Area:&nbsp;</label>
+                    @Html.DropDownListFor(model => model.SubAreaID, new SelectList(new List<string>() { }), new { @class = "form-control _repeating_row_dropdowns", @id = "ddlSubArea" })
+                </div>
+                <div class="width-14">
+                    <label for="area" class="pull-left _padding-10">Responsibility:&nbsp;</label>
+                    @Html.EnumDropDownListFor(model => model.Responsibility, new { @class = "form-control pull-left input-sm _repeating_row_dropdowns", @id = "sel1" })
+                </div>
+                <div class="width-14">
+                    <label for="area" class="pull-left _padding-10">Question Owner:&nbsp;</label>
+                    @Html.HiddenFor(model => model.QuestionOwnerID)
+                    @Html.TextBoxFor(model => model.QuestionOwnerName, new { @class = "form-control input-sm pull-left  _user userDialog", @id = "inputsm", @data_hidden= "QuestionOwnerID"})
+                </div>
+
+                @*<div class="width-14">
+                        <label for="area" class="pull-left _padding-10">External Focal Point:&nbsp;</label>
+                        @Html.HiddenFor(model => model.ExtrenalFocalPoint })
+
+
+                        <input type="text" class="form-control input-sm pull-left _user" id="inputsm">
+                    </div>*@
+
+                <div class="width-14 _date-calender">
+                    <label for="area" class="pull-left _padding-10">&nbsp;Handling Start Date:&nbsp;</label>
+                    @Html.TextBoxFor(model => model.HandlingStartDate, new { @class = "form-control input-sm pull-left _calender", @data_placement = "bottom" })
+                    @*<input type='text' class="form-control input-sm pull-left _calender" data-placement="bottom">*@
+                    <!-- Popover 2 hidden title -->
+                    <div id="popoverExampleTwoHiddenContent" style="display: none">
+                        <div class="form-group _padding-10 pull-left">
+                            <label class="_font-10 _label">Change Effective Date:</label>
+                            <input type='text' class="form-control input-sm pull-left _date" value="">
+                        </div>
+                        <div class="form-group _padding-10 pull-left">
+                            <button type="button" class="btn btn-info _no-border-radius-btn _popover_btns">Cancel</button>
+                            <button type="button" class="btn btn-info _no-border-radius-btn _popover_btns">Save</button>
+                            <button type="button" class="btn btn-info _no-border-radius-btn _popover_btn">Resume Formula</button>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </td>
+</tr>
+

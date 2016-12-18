@@ -1,0 +1,22 @@
+﻿
+@model PREP.Models.ReleaseGeneralDetails
+<div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-xs-6 _uscc_div">
+        <span class="_uscc">@Model.AccountName |&nbsp;<b>@Model.Name</b></span><br>
+        <span class="_uscc_txt">Release Size: @Model.Size, PERP Review Mode: Full, LOB:  @Model.LOB, Products:
+        @if (ViewBag.productsName != null) { 
+        foreach (var item in (List<string>)ViewBag.productsName )
+        {
+            <span>@item,&nbsp;</span>
+        }}
+        </span>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-xs-6  _uscc_div _pad_r_5">
+        <button type="button" class="view_btn btn btn-info _no-border-radius-btn _transparent_btns">Save</button>
+        <button type="button" class="view_btn btn btn-info _no-border-radius-btn _transparent_btns">Publish a Draft</button>
+        <button type="button" class="view_btn btn btn-info _no-border-radius-btn _transparent_btns">Formal Publish</button>
+    </div>
+</div>
+
+

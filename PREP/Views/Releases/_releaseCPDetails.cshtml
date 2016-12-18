@@ -1,0 +1,88 @@
+﻿@model PREP.DAL.Models.ReleaseCP
+
+<script src="~/Scripts/CheckPointDetails.js"></script>
+<h2 class="header-title">
+    ReleaseCP
+</h2>
+<div class="detailsContent detailsContentPopUp">
+    <hr />
+         <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.CPID)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.CPID)
+            </div>
+        </div>
+   
+    <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ExceptionIndicator)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ExceptionIndicator)
+            </div>
+        </div>
+    <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ExceptionDate)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ExceptionDate)
+            </div>
+        </div>
+    <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.ExceptionRemarks)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.ExceptionRemarks)
+            </div>
+        </div>
+   
+    <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.DelayReason)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.DelayReason)
+            </div>
+        </div>
+    <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.DelayReasonHistory)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.DelayReasonHistory)
+            </div>
+        </div>
+    <hr />
+        <div>
+            <div class="item-lable">
+                @Html.DisplayNameFor(model => model.Comments)
+            </div>
+
+            <div class="form-inline">
+                @Html.DisplayFor(model => model.Comments)
+            </div>
+        </div>
+   
+</div>
+<footer>
+    <div class="tabs-action-button">
+        <input type="button" value="Edit" class="footer-button" id="cp-details-Edit" />
+        <input type="button" value="Exit" class="footer-button exit-popup-btn"  />
+    </div>
+</footer>
+
